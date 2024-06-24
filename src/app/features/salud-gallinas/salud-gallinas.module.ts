@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
 
 import { SaludGallinasRoutingModule } from './salud-gallinas-routing.module';
-import { MonitoreoComponent } from './monitoreo/monitoreo.component';
-
 
 @NgModule({
   declarations: [
-    MonitoreoComponent
   ],
   imports: [
     CommonModule,
-    SaludGallinasRoutingModule
+    SharedModule
+
   ]
 })
 export class SaludGallinasModule { }
