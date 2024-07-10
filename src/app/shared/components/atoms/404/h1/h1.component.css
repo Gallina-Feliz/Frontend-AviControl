@@ -1,0 +1,128 @@
+:root{
+    margin: 0;
+    
+
+    --white: #f2f5f5;
+    --black: #121212;
+    --yellow: #f1ab0f;
+    --gray: #959695;
+    --grayw: #e4e4e4;
+
+}
+ 
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: "Montserrat", sans-serif;
+    color: var(--white);
+    background-color: var(--black)
+}
+
+.error_container{
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 10px
+}
+
+.error_code{
+    width: 100%;
+    margin: 0 auto;
+    font-size: 6rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cuatro{
+    opacity: 0;
+    color: var(--yellow);
+    transform: rotateZ(-20deg); 
+    animation: bounce 1.2s 1.3s linear forwards;
+}
+
+.cuatrodos{
+    opacity: 0;
+    color: var(--yellow);
+    transform: rotateZ(20deg); 
+    animation: bounce 1.2s 1.3s linear forwards;
+    
+}
+
+.cero{
+    color: var(--grayw);
+    animation: bounce 1.1s 1.2s linear forwards;
+    opacity: 0;
+}
+
+.error_title{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 12px;
+}
+
+.error_description{
+    font-size: 0.9rem;
+    text-align: justify;
+    line-height: 1.6;
+    padding: 0 10%;
+    color: var(--gray);
+}
+
+.action{
+    font: inherit;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--yellow);
+    color: var(--white);
+}
+
+.action:hover{
+    opacity: 0.8;
+}
+
+@media screen and (min-width: 48rem ){
+    .error_description{
+        padding: 0;
+    }
+    
+}
+@keyframes fall{
+    0%{
+        transform: translateY(-100vh);
+    }
+    100%{
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes bounce{
+    0%,40%,75%,95%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    15%{
+        transform: translateY(-25px);
+    }
+    65%{
+        transform: translateY(-15px);
+    }
+    85%{
+        transform: translateY(-5px);
+    }
+    100%{
+        transform: translateY('45deg');
+        opacity: 1;
+    }
+}
+    
