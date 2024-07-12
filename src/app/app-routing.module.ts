@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'Historial-y-Estadisticas',
-    component: HistorialYEstadisticasComponent
+    
   },
 ];
 

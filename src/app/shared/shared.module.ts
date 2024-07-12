@@ -6,6 +6,8 @@ import { ButtonDismissComponent } from './components/atoms/button-dismiss/button
 import { TablaSeleccionarComponent } from './components/molecules/tabla-seleccionar/tabla-seleccionar.component';
 import { TablaGallinasComponent } from './components/molecules/tabla-gallinas/tabla-gallinas.component';
 import { AlertComponent } from './components/organisms/alert/alert.component';
+import { DescripcionGalponesComponent } from './components/molecules/descripcion-galpones/descripcion-galpones.component';
+import { DescripcionGallinasComponent } from './components/molecules/descripcion-gallinas/descripcion-gallinas.component';
 
 
 
@@ -17,7 +19,9 @@ import { AlertComponent } from './components/organisms/alert/alert.component';
     ButtonDismissComponent,
     TablaSeleccionarComponent,
     TablaGallinasComponent,
-    AlertComponent
+    AlertComponent,
+    DescripcionGalponesComponent,
+    DescripcionGallinasComponent
   ],
   imports: [
   
