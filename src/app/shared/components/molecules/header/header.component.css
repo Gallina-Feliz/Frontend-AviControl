@@ -1,0 +1,31 @@
+.navbar-dark .navbar-nav .nav-link {
+    color: #000000; /* Color negro para el texto del enlace */
+}
+.dropdown-menu {
+    background-color: #f1ab0f/* Color de fondo del menú desplegable */
+}
+.dropdown-item {
+    color: #000000; /* Color del texto de los ítems del menú */
+}
+.search-form {
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+.search-input {
+    width: 100%;
+}
+nav{
+    height: 100%;
+}
+.side-nav-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.side-nav-button:hover{
+    background-color: rgb(7, 7, 7);
+    border-radius: 30%;
+}
+
