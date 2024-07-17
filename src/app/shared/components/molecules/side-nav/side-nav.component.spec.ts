@@ -11,7 +11,7 @@ describe('SideNavComponent', () => {
       declarations: [SideNavComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(SideNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -21,3 +21,6 @@ describe('SideNavComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+
