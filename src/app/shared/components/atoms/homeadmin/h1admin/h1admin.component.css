@@ -1,0 +1,11 @@
+h1{height: 10vh;
+    font-size: 40px ;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: black;
+    background-color:white;
+    margin-top: 80px;
+}

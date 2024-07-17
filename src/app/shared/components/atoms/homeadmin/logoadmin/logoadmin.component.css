@@ -1,0 +1,23 @@
+h1{
+    height: 10vh;
+    font-size: 35px ;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #f1ab0f;
+    background-color:white;
+    padding-top: 40px;
+}
+
+.logo{
+    padding-right: 230px;
+    display: flex;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+   
+}

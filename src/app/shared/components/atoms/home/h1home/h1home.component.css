@@ -1,0 +1,35 @@
+:root{
+    margin: 0;
+    
+
+    --white: hsl(0, 0%, 100%);
+    --black: #121212;
+    --yellow: #f1ab0f;
+    --gray: #e4e4e4;
+
+
+}
+
+.titulo{
+    height: 10vh;
+    font-size: 40px ;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #f1ab0f;
+    background-color:white;
+}
+
+.imagen{
+    width: 200px;
+    height: 200px;
+    margin-left: 567px;
+
+}
+
+.logo{
+    text-align: center;
+    margin-top:60px;
+}
