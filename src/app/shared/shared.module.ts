@@ -39,8 +39,7 @@ import { DescrigalponesComponent } from './components/molecules/descrigalpones/d
 
 @NgModule({
   declarations: [
-    MenuLateralComponent,
-    FlechaDespliegueComponent,
+
     UrlComponent,
     H1Component,
     DecriptionComponent,
@@ -77,8 +76,6 @@ import { DescrigalponesComponent } from './components/molecules/descrigalpones/d
     CommonModule
   ],
   exports: [
-    MenuLateralComponent,
-    FlechaDespliegueComponent,
     UrlComponent,
     H1Component,
     DecriptionComponent,
@@ -107,4 +104,5 @@ import { DescrigalponesComponent } from './components/molecules/descrigalpones/d
     H3beneComponent,
     DescrigalponesComponent 
 ]})
+
 export class SharedModule { }
