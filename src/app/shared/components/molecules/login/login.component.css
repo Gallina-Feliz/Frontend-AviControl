@@ -7,14 +7,18 @@
 }
 
 :root {
-    --linear-grad: linear-gradient(to right, #19cae9, #0ee089);
-    --grad-clr1: #0ee089;
-    --grad-clr2: #757171;
+    --linear-grad: linear-gradient(to right, #da8a00, #ffb35c);
+    --grad-clr1: #da8a00;
+    --grad-clr2: #da8a00;
 }
 
 body {
     height: 100vh;
-    background: #f6f5f7;
+    background-image: url(../../../../../assets/images/fondoG.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
     display: grid;
     place-content: center;
     font-family: 'Poppins', sans-serif;
@@ -54,7 +58,7 @@ form{
     padding: 0px 50px;
 }
 h1{
-    color:  var(--grad-clr1);
+    color:  #da8a00;
     display: block;
     font-size: 2em;
     margin-block-start: 0.67em;
