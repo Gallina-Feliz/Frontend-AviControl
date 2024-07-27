@@ -1,30 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { FlechaDespliegueComponent } from './components/atoms/flecha-despliegue/flecha-despliegue.component';
-import { ButtonDismissComponent } from './components/atoms/button-dismiss/button-dismiss.component';
-import { AlertComponent } from './components/organisms/alert/alert.component';
-
-import { HeaderComponent } from './components/molecules/header/header.component';
-import { SideNavComponent } from './components/molecules/side-nav/side-nav.component';
-
-
-
+import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from './components/molecules/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AlertComponent,
-    HeaderComponent,
-    SideNavComponent
+    
+    NavbarComponent
   ],
   imports: [
-  
+    MatIconModule,
     CommonModule
   ],
   exports: [
-    AlertComponent,
-    HeaderComponent,
-    SideNavComponent
+    NavbarComponent
   ]
+
 })
 export class SharedModule { }

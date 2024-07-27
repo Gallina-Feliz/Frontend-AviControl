@@ -1,11 +1,10 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
-@Component ({
+@Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'HeaderSideNav';
-  sideNavStatus: boolean = false;
+  title = 'my-app';
 }
