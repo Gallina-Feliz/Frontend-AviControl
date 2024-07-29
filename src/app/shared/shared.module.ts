@@ -31,6 +31,7 @@ import { H3accComponent } from './components/atoms/descrigalpones/h3acc/h3acc.co
 import { H3tomaComponent } from './components/atoms/descrigalpones/h3toma/h3toma.component';
 import { H3beneComponent } from './components/atoms/descrigalpones/h3bene/h3bene.component';
 import { DescrigalponesComponent } from './components/molecules/descrigalpones/descrigalpones.component';
+import { LoginComponent } from './components/molecules/login/login.component';
 
 
 
@@ -67,7 +68,8 @@ import { DescrigalponesComponent } from './components/molecules/descrigalpones/d
     H3accComponent,
     H3tomaComponent,
     H3beneComponent,
-    DescrigalponesComponent 
+    DescrigalponesComponent,
+    LoginComponent 
   ],
   imports: [
   
@@ -100,7 +102,8 @@ import { DescrigalponesComponent } from './components/molecules/descrigalpones/d
     H3accComponent,
     H3tomaComponent,
     H3beneComponent,
-    DescrigalponesComponent 
+    DescrigalponesComponent,
+    LoginComponent 
 ]})
 
 export class SharedModule { }
