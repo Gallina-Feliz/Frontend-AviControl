@@ -1,26 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputComponent } from './components/atoms/input/input.component';
+
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
+import { H1Component } from './components/atoms/h1/h1.component';
+
 
 
 
 @NgModule({
   declarations: [
-    
-  
- 
-    InputComponent
+  H1Component
   ],
   imports: [
    FormsModule,
     CommonModule
   ],
   exports: [
-      
-
-  InputComponent
+      H1Component
   ]
 })
 export class SharedModule { }
