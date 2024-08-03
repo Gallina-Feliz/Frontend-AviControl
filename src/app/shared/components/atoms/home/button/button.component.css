@@ -1,0 +1,14 @@
+.boton{
+    font: inherit;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color:#f1ab0f;
+    color: white;
+    margin-left: 545px;
+    margin-top: 60px;
+    padding: 20px;
+    padding-left: 75px;
+    padding-right:75px;
+}
