@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './url.component.css'
 })
 export class UrlComponent {
-  productId = 123; 
+  productId = 234; 
 }
