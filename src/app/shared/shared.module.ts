@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './components/molecules/login/login.component';
 
 
 
@@ -9,13 +10,15 @@ import { CommonModule } from '@angular/common';
   declarations: [
     
   
+  
+    LoginComponent
   ],
   imports: [
   
     CommonModule
   ],
   exports: [
-    
+    LoginComponent
   ]
 })
 export class SharedModule { }
