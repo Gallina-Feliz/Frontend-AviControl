@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module'; // Ajusta la ruta según corresponda
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 // import { MenuLateralComponent } from './shared/components/molecules/menu-lateral/menu-lateral.component';
 // import { MenuLateralComponent } from './shared/components/molecules/menu-lateral/menu-lateral.component';
 
@@ -12,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
+
     // MenuLateralComponent
 
   ],
