@@ -5,6 +5,7 @@ import { UrlComponent } from './components/atoms/url/url.component';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { H1Component } from './components/atoms/h1/h1.component';
+import { SidebarComponent } from './components/molecules/sidebar/sidebar.component';
 
 import { LoginComponent } from './components/molecules/login/login.component';
 import { ButtonsComponent } from './components/atoms/buttons/buttons.component';
@@ -21,7 +22,8 @@ import { InputsComponent } from './components/atoms/inputs/inputs.component';
     ButtonsComponent,
     AvatarComponent,
     IconComponent,
-    InputsComponent
+    InputsComponent,
+    SidebarComponent
   ],
   imports: [
     FormsModule,
@@ -33,7 +35,8 @@ import { InputsComponent } from './components/atoms/inputs/inputs.component';
     LoginComponent,
     ButtonsComponent,
     AvatarComponent,
-    IconComponent
+    IconComponent,
+    SidebarComponent
   ]
 })
 export class SharedModule { }
