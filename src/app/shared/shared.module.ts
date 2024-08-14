@@ -12,12 +12,10 @@ import {IconComponent} from "./components/atoms/icon/icon.component";
 
 @NgModule({
   declarations: [
-    
-  
   ButtonsComponent,
   AvatarComponent,
   IconComponent,
-    LoginComponent
+  LoginComponent
   ],
   imports: [
   
