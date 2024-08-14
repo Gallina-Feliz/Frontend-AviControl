@@ -12,6 +12,7 @@ import { ButtonsComponent } from './components/atoms/buttons/buttons.component';
 import { AvatarComponent } from './components/atoms/avatar/avatar.component';
 import { IconComponent } from './components/atoms/icon/icon.component';
 import { InputsComponent } from './components/atoms/inputs/inputs.component';
+import { FormComponent } from './components/molecules/form/form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InputsComponent } from './components/atoms/inputs/inputs.component';
     AvatarComponent,
     IconComponent,
     InputsComponent,
-    SidebarComponent
+    SidebarComponent,
+    FormComponent
   ],
   imports: [
     FormsModule,
@@ -36,7 +38,8 @@ import { InputsComponent } from './components/atoms/inputs/inputs.component';
     ButtonsComponent,
     AvatarComponent,
     IconComponent,
-    SidebarComponent
+    SidebarComponent,
+    FormComponent
   ]
 })
 export class SharedModule { }
