@@ -1,0 +1,29 @@
+/* delete-gallina.component.css */
+.gallina-list {
+    margin: 20px;
+  }
+  
+  .gallina-list div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .gallina-list span {
+    flex: 1;
+  }
+  
+  .gallina-list button {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 2px;
+    
+  }
+  
+  .gallina-list button:hover {
+    background-color: #d32f2f; /* Darker red */
+  }
+  

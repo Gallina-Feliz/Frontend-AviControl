@@ -14,6 +14,7 @@ import { IconComponent } from './components/atoms/icon/icon.component';
 import { InputsComponent } from './components/atoms/inputs/inputs.component';
 import { FormComponent } from './components/molecules/form/form.component';
 import { TableComponent } from './components/molecules/table/table.component';
+import { EliminarComponent } from './components/molecules/eliminar/eliminar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TableComponent } from './components/molecules/table/table.component';
     InputsComponent,
     SidebarComponent,
     FormComponent,
-    TableComponent
+    TableComponent,
+    EliminarComponent
   ],
   imports: [
     FormsModule,
@@ -42,7 +44,8 @@ import { TableComponent } from './components/molecules/table/table.component';
     IconComponent,
     SidebarComponent,
     FormComponent,
-    TableComponent
+    TableComponent,
+    EliminarComponent
   ]
 })
 export class SharedModule { }

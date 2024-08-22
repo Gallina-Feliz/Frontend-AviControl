@@ -1,0 +1,6 @@
+<div class="gallina-list">
+  <div *ngFor="let gallina of gallinas">
+    <span>{{ gallina.nombre }}</span>
+    <button (click)="deleteGallina(gallina.id)">Eliminar</button>
+  </div>
+</div>
