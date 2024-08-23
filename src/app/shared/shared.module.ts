@@ -45,6 +45,9 @@ import { RDstateAgua2Component } from './components/atoms/radioButtons/rdstate-a
 import { DivFormStateGallinaComponent } from './components/molecules/radioButtons/div-form-state-gallina/div-form-state-gallina.component';
 import { FormStateGallinasComponent } from './components/organisms/radioButtons/form-state-gallinas/form-state-gallinas.component';
 import { FormStateGallinasTComponent } from './components/templates/radioButtons/form-state-gallinas-t/form-state-gallinas-t.component';
+import { ParrafosComponent } from './components/atoms/parrafos/parrafos/parrafos.component';
+import { EstadoGallinaComponent } from './components/templates/formStateGallina/estado-gallina/estado-gallina.component';
+import { ButtonEnviarComponent } from './components/atoms/radioButtons/button-enviar/button-enviar.component';
 
 
 
@@ -95,7 +98,10 @@ import { FormStateGallinasTComponent } from './components/templates/radioButtons
     RDstateAgua2Component,
     DivFormStateGallinaComponent,
     FormStateGallinasComponent,
-    FormStateGallinasTComponent 
+    FormStateGallinasTComponent,
+    ParrafosComponent,
+    EstadoGallinaComponent,
+    ButtonEnviarComponent 
   ],
   imports: [
   
@@ -141,7 +147,10 @@ import { FormStateGallinasTComponent } from './components/templates/radioButtons
     RDstateAguaComponent,
     RDstateAgua2Component,
     DivFormStateGallinaComponent,
-    FormStateGallinasComponent 
+    FormStateGallinasComponent,
+    ParrafosComponent,
+    EstadoGallinaComponent,
+    ButtonEnviarComponent
 ]})
 
 export class SharedModule { }
