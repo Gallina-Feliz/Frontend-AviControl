@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,OnInit, OnDestroy } from '@angular/core';
+import { AuthService } from '../../../../../core/services/auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-form-page',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './form-page.component.css'
 })
 export class FormPageComponent {
-
+  
 }

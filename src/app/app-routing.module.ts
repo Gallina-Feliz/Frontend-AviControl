@@ -5,11 +5,14 @@ import { LoginPageComponent } from './features/salud-gallinas/pages/home/login-p
 import { HomePageComponent} from "./features/salud-gallinas/pages/home/home-page/home-page.component";
 import { AuthGuard } from '../app/core/guards/auth-guard/auth.guard';
 import { LoginComponent } from './shared/components/molecules/login/login.component';
+import { FormPageComponent } from "../app/features/salud-gallinas/pages/dashboard/form-page/form-page.component";
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },           // De ambos códigos      // Del primer bloque
-  { path: 'Home', component: HomePageComponent, canActivate: [AuthGuard] }
+  { path: 'Home', component: HomePageComponent, canActivate: [AuthGuard] },
+  { path: 'FormularioGallinas', component: FormPageComponent, canActivate: [AuthGuard] }
+
 ];
 
 @NgModule({
