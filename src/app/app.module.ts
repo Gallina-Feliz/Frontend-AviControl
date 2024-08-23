@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { authInterceptor } from '../app/core/interceptor/auth-interceptor/auth.interceptor';
+import { AuthInterceptor } from '../app/core/interceptor/auth-interceptor/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: authInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

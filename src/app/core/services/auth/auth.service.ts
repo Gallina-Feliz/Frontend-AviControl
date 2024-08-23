@@ -1,35 +1,77 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5159'; // URL de la API
+  private apiUrl = 'http://localhost:5159/api/Acceso';
+  private requirePasswordChangeSubject = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  login(credentials: { correo : string; clave: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/Acceso/Login`, credentials).pipe(
-      tap((response: any) => {
-        // Guardar el token en el localStorage
-        localStorage.setItem('token', response.token);
+  login(credentials: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/Login`, credentials).pipe(
+      tap(response => {
+        if (response && response.isSuccess) {
+          // Guarda el IdUsuario y el token en localStorage
+          localStorage.setItem('userId', response.IdUsuario);
+          localStorage.setItem('token', response.token);
+          this.router.navigate(['/Home']);
+        } else {
+          throw new Error('No se recibió la información de autenticación esperada');
+        }
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  register(user: any): Observable<any> {
+    console.log('Datos enviados al servidor:', user);
+    return this.http.post<any>(`${this.apiUrl}/Registrarse`, user).pipe(
+      catchError(error => {
+        console.error('Error en el registro:', error);
+        console.error('Error response:', error.error);
+        return throwError(() => new Error(error.error?.message || 'Ocurrió un error desconocido'));
       })
     );
   }
 
-  register(user: { nombre: string; correo: string; clave: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/Acceso/Registrarse`, user);
+  logout(): void {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 
-  // Obtener el token desde el localStorage
-  getToken(): string | null {
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+
+  getUserId(): string {
+    return localStorage.getItem('userId') || '';
+  }
+
+  getAuthToken(): string | null {
     return localStorage.getItem('token');
   }
 
-  logout(): void {
-    localStorage.removeItem('token');
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'An unknown error occurred!';
+    if (error.error instanceof ErrorEvent) {
+      // Error del lado del cliente
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // El backend devolvió un código de respuesta sin éxito
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      if (error.error) {
+        errorMessage += `\nDetails: ${JSON.stringify(error.error)}`;
+      }
+    }
+    console.error(errorMessage);
+    return throwError(() => new Error(errorMessage));
   }
 }

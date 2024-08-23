@@ -1,7 +1,6 @@
-import { Component, AfterViewInit , ViewEncapsulation } from '@angular/core';
+import { Component, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-login',
@@ -12,28 +11,39 @@ import { Router } from '@angular/router';
 export class LoginComponent implements AfterViewInit {
   correo: string = '';
   clave: string = '';
+  userId: string = '';
+
+
+  ngOnInit(): void {
+    this.userId = this.authService.getUserId();
+  }
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  // Lógica de la animación
   ngAfterViewInit() {
     const container = document.getElementById('container');
     const overlayBtn = document.getElementById('overlayBtn');
+    const signInBtn = document.getElementById('signInBtn');
+    const signUpBtn = document.getElementById('signUpBtn');
 
     overlayBtn?.addEventListener('click', () => {
       container?.classList.toggle('right-panel-active');
-      overlayBtn.classList.remove('btnScaled');
-      window.requestAnimationFrame(() => {
-        overlayBtn.classList.add('btnScaled');
-      });
+    });
+
+    signInBtn?.addEventListener('click', () => {
+      container?.classList.remove('right-panel-active');
+    });
+
+    signUpBtn?.addEventListener('click', () => {
+      container?.classList.add('right-panel-active');
     });
   }
 
-  // Lógica del login
   login() {
     this.authService.login({ correo: this.correo, clave: this.clave }).subscribe(
-      () => 
-        this.router.navigate(['/Home']),
+      () => {
+        this.router.navigate(['/Home']);
+      },
       (error) => console.error('Login failed', error)
     );
   }
