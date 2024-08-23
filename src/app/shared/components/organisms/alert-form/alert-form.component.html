@@ -1,0 +1,11 @@
+<div *ngIf="showAlert" class="alert" [ngClass]="alertClass">
+    <span>{{ alertMessage }}</span>
+    <button (click)="closeAlert()" class="close-btn">&times;</button>
+  </div>
+  
+  <!-- Botones para activar las alertas -->
+  <button (click)="showSuccessAlert()" class="btn success-btn">Mostrar Éxito</button>
+  <button (click)="showErrorAlert()" class="btn error-btn">Mostrar Error</button>
+  <button (click)="showInfoAlert()" class="btn info-btn">Mostrar Info</button>
+  <button (click)="showWarningAlert()" class="btn warning-btn">Mostrar Advertencia</button>
+  
