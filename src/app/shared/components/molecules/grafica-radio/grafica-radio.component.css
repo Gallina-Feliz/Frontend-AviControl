@@ -1,0 +1,16 @@
+/* diagrama.component.css */
+.chart-container {
+    border: 2px solid #000; /* Borde negro de 2px */
+    border-radius: 8px;     /* Esquinas redondeadas */
+    padding: 10px;          /* Espacio interior del cuadro */
+    background-color: #f8f9fa; /* Fondo claro */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
+    max-width: 320px;       /* Ancho máximo del cuadro */
+    margin: auto;          /* Centra el cuadro horizontalmente */
+  }
+  
+  canvas {
+    width: 100% !important; /* Ocupa todo el ancho del contenedor */
+    height: auto !important; /* Altura automática para mantener el aspecto */
+  }
+  
