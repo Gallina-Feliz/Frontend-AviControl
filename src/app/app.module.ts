@@ -9,11 +9,9 @@ import { AuthInterceptor } from '../app/core/interceptor/auth-interceptor/auth.i
 import { HttpClientModule } from '@angular/common/http';
 
 
-
 @NgModule({
   declarations: [
-    AppComponent
-   
+    AppComponent,
   ],
   imports: [
     HttpClientModule,

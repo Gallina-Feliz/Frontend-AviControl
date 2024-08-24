@@ -6,12 +6,15 @@ import { HomePageComponent} from "./features/salud-gallinas/pages/home/home-page
 import { AuthGuard } from '../app/core/guards/auth-guard/auth.guard';
 import { LoginComponent } from './shared/components/molecules/login/login.component';
 import { FormPageComponent } from "../app/features/salud-gallinas/pages/dashboard/form-page/form-page.component";
+import { FormComponent } from "../app/shared/components/molecules/form/form.component";
+import { TableComponent } from "../app/shared/components/molecules/table/table.component";
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },           // De ambos códigos      // Del primer bloque
   { path: 'Home', component: HomePageComponent, canActivate: [AuthGuard] },
-  { path: 'FormularioGallinas', component: FormPageComponent, canActivate: [AuthGuard] }
+  { path: 'FormularioGallinas', component: FormComponent, canActivate: [AuthGuard] },
+  { path: 'TablaGallinas', component: TableComponent, canActivate: [AuthGuard] },
 
 ];
 
