@@ -1,73 +1,55 @@
+<div class="w-full">
+  <h1 class="text-center mb-6 text-3xl font-bold custom-font custom-color">Tabla de las gallinas</h1>
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3 text-[#c77900]">Codigo</th>
+        <th scope="col" class="px-6 py-3 text-[#c77900]">Raza</th>
+        <th scope="col" class="px-6 py-3 text-[#c77900]">Edad</th>
+        <th scope="col" class="px-6 py-3 text-[#c77900]">Num Galpon</th>
+        <th scope="col" class="px-6 py-3 text-[#c77900]">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gallina of gallinas" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          {{ gallina.codigo_gallina }}
+        </th>
+        <td class="px-6 py-4">{{ gallina.raza }}</td>
+        <td class="px-6 py-4">{{ gallina.edad }}</td>
+        <td class="px-6 py-4">{{ gallina.numero_galpon }}</td>
+        <td class="px-6 py-4">
+          <div class="flex space-x-4">
+            <button (click)="editGallina(gallina)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Actualizar
+            </button>
+            <button (click)="deleteGallina(gallina.codigo_gallina)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+              Eliminar
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    <div class="relative overflow-x-auto">
-        <h1 class="text-center mb-6 text-3xl font-bold custom-font custom-color">Tabla de las gallinas</h1>
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3 text-[#c77900]">
-                        Codigo
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-[#c77900]">
-                        raza
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-[#c77900]">
-                        edad
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-[#c77900]">
-                        Num Galpon
-                    </th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        5362
-                    </th>
-                    <td class="px-6 py-4">
-                        Kiker
-                    </td>
-                    <td class="px-6 py-4">
-                        3
-                    </td>
-                    <td class="px-6 py-4">
-                        3
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        64758
-                    </th>
-                    <td class="px-6 py-4">
-                        criolla
-                    </td>
-                    <td class="px-6 py-4">
-                        5
-                    </td>
-                    <td class="px-6 py-4">
-                        2
-                    </td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        849593
-                    </th>
-                    <td class="px-6 py-4">
-                        turuleca
-                    </td>
-                    <td class="px-6 py-4">
-                        4
-                    </td>
-                    <td class="px-6 py-4">
-                        3
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
-
-
-
-
-
+  <!-- Submenú de Edición -->
+  <div *ngIf="selectedGallina" class="edit-form p-4 mt-4 border border-gray-300 bg-gray-50">
+    <h2 class="text-lg font-bold mb-4">Editar Gallina</h2>
+    <form (ngSubmit)="updateGallina()">
+      <div class="mb-4">
+        <label for="raza" class="block text-sm font-medium text-gray-700">Raza</label>
+        <input [(ngModel)]="selectedGallina.raza" name="raza" type="text" id="raza" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+      </div>
+      <div class="mb-4">
+        <label for="edad" class="block text-sm font-medium text-gray-700">Edad</label>
+        <input [(ngModel)]="selectedGallina.edad" name="edad" type="number" id="edad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+      </div>
+      <div class="mb-4">
+        <label for="numero_galpon" class="block text-sm font-medium text-gray-700">Número de Galpón</label>
+        <input [(ngModel)]="selectedGallina.numero_galpon" name="numero_galpon" type="number" id="numero_galpon" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+      </div>
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Actualizar</button>
+      <button (click)="cancelEdit()" type="button" class="bg-gray-500 text-white py-2 px-4 rounded ml-2">Cancelar</button>
+    </form>
+  </div>
+</div>
