@@ -10,10 +10,13 @@ import { FormsModule } from '@angular/forms';
 import { SaludGallinasRoutingModule } from './features/salud-gallinas/salud-gallinas-routing.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    
+
+
+
   ],
   imports: [
     HttpClientModule,
@@ -21,7 +24,9 @@ import { SaludGallinasRoutingModule } from './features/salud-gallinas/salud-gall
     SharedModule,
     AppRoutingModule,
     FormsModule,
-    SaludGallinasRoutingModule
+    SaludGallinasRoutingModule,
+
+
 
   ],
   providers: [

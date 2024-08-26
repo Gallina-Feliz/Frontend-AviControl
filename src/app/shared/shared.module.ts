@@ -15,6 +15,9 @@ import { FormComponent } from './components/molecules/form/form.component';
 import { TableComponent } from './components/molecules/table/table.component';
 import { AlertFormComponent } from './components/organisms/alert-form/alert-form.component';
 import { Login2Component } from './components/molecules/login2/login2.component';
+import { BarChartComponent } from './components/organisms/bar-chart/bar-chart.component';
+import { LineChartComponent } from './components/organisms/line-chart/line-chart.component';
+import { PieChartComponent } from './components/organisms/pie-chart/pie-chart.component';
 
 
 @NgModule({
@@ -30,7 +33,11 @@ import { Login2Component } from './components/molecules/login2/login2.component'
     FormComponent,
     TableComponent,
     AlertFormComponent,
-    Login2Component
+    Login2Component,
+    BarChartComponent,
+    LineChartComponent,
+    PieChartComponent,
+
   ],
   imports: [
     FormsModule,
@@ -46,7 +53,10 @@ import { Login2Component } from './components/molecules/login2/login2.component'
     FormComponent,
     TableComponent,
     AlertFormComponent,
-    Login2Component
+    Login2Component,
+    BarChartComponent,
+    LineChartComponent,
+    PieChartComponent
   ]
 })
 export class SharedModule { }
