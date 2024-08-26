@@ -33,7 +33,7 @@ export class PieChartComponent implements OnInit {
       }]
     };
     // Creamos la gráfica
-    this.chart = new Chart("chart", {
+    this.chart = new Chart("chartpie", {
       type: 'pie' as ChartType, // tipo de la gráfica
       data // datos
     })

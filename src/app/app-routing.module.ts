@@ -8,19 +8,13 @@ import { FormComponent } from "../app/shared/components/molecules/form/form.comp
 import { TableComponent } from "../app/shared/components/molecules/table/table.component";
 import { LoginPageComponent } from './features/salud-gallinas/pages/login-page/login-page.component';
 import { SidebarComponent } from './shared/components/molecules/sidebar/sidebar.component';
-import { BarChartComponent } from './shared/components/organisms/bar-chart/bar-chart.component';
-import { LineChartComponent } from './shared/components/organisms/line-chart/line-chart.component';
-import { PieChartComponent } from './shared/components/organisms/pie-chart/pie-chart.component';
+
 
 const routes: Routes = [
   { path: 'login', component: Login2Component },           // De ambos códigos      // Del primer bloque
   { path: 'Home', component: SidebarComponent, canActivate: [AuthGuard] },
   { path: 'FormularioGallinas', component: FormComponent, canActivate: [AuthGuard] },
-  { path: 'TablaGallinas', component: TableComponent, canActivate: [AuthGuard] },
-  { path: 'line-chart', component: LineChartComponent },
-  { path: 'bar-chart', component: BarChartComponent },
-  { path: 'pie-chart', component: PieChartComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'line-chart'}
+  { path: 'TablaGallinas', component: TableComponent, canActivate: [AuthGuard] }
 
 ];
 
