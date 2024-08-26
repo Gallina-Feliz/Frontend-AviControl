@@ -1,0 +1,32 @@
+<img class="wave" src="">
+<div class="container">
+  <div class="img">
+    <img src="../../../../../assets/images/bg.svg">
+  </div>
+  <div class="login-content">
+    <form (ngSubmit)="onLogin()"> <!-- Cambié (submit) a (ngSubmit) -->
+      <img src="../../../../../assets/images/Logo.jpg">
+      <h2 class="title">Welcome</h2>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <h5>Username</h5>
+          <input type="text" class="input" [(ngModel)]="loginModel.Email" name="correo" required> <!-- ngModel enlazado a loginModel.correo -->
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <h5>Password</h5>
+          <input type="password" class="input" [(ngModel)]="loginModel.Password" name="clave" required> <!-- ngModel enlazado a loginModel.clave -->
+        </div>
+      </div>
+      <a href="#">Forgot Password?</a>
+      <input type="submit" class="btn" value="Login">
+    </form>
+  </div>
+</div>

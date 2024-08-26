@@ -1,0 +1,12 @@
+.hidden {
+    display: none;
+  }
+  
+  #dropdown-user {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    z-index: 50;
+  }
+  

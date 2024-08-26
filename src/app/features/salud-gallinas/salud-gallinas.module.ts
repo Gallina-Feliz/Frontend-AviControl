@@ -1,17 +1,20 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { SaludGallinasRoutingModule } from './salud-gallinas-routing.module';
-import { MonitoreoComponent } from './monitoreo/monitoreo.component';
-
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
-    MonitoreoComponent
+    HomePageComponent,
+    LoginPageComponent
   ],
   imports: [
     CommonModule,
-    SaludGallinasRoutingModule
-  ]
+    SaludGallinasRoutingModule,
+    SharedModule
+]
 })
 export class SaludGallinasModule { }
