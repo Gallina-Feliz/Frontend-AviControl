@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // Asegúrate de tener HttpClientModule importado en tu app.module.ts
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-form-galpon',
   templateUrl: './form-galpon.component.html',
