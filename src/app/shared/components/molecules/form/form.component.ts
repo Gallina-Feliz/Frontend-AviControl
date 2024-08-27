@@ -8,11 +8,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  gallina = {
-    raza: '',
-    edad: '',
-    numero_galpon: ''
-  };
+  razas: string[] = ['Raza 1', 'Raza 2', 'Raza 3']; // Lista de razas disponibles
+  gallina: any = {};
+  
 
   constructor(private gallinaService: GallinaService) {}
 

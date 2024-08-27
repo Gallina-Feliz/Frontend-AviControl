@@ -51,14 +51,14 @@ export class Login2Component implements OnInit {
             // Usa el método saveToken para guardar el token
             this.authService.saveToken(response.token);
   
+            // Aquí eliminas o comentas la alerta de éxito
+            /*
             Swal.fire({
               icon: 'success',
-              title: 'Inicio de sesión exitoso',
-              showConfirmButton: true,
-              confirmButtonColor: '#3085d6',  // Color azul para el botón "OK"
-              confirmButtonText: 'OK',
-              timer: 1500
+              title: 'Inicio de sesión exitoso',  // Color azul para el botón "OK"
+              timer: 1800
             });
+            */
   
             if (response.RequirePasswordChange) {
               this.router.navigate(['/change-password']);
@@ -83,7 +83,6 @@ export class Login2Component implements OnInit {
             text: error.message || 'Ocurrió un error durante el inicio de sesión',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'OK'
-
           });
         }
       );
@@ -97,4 +96,5 @@ export class Login2Component implements OnInit {
       });
     }
   }
+  
 }

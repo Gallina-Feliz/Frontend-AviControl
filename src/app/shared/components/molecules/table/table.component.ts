@@ -8,8 +8,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+  razas: string[] = ['Raza 1', 'Raza 2', 'Raza 3']; // Lista de razas disponibles
   gallinas: any[] = [];
-  selectedGallina: any = null;
+  selectedGallina: any ;
 
   constructor(private gallinaService: GallinaService) {}
 

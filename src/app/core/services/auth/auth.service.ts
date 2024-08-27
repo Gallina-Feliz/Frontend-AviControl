@@ -22,12 +22,12 @@ export class AuthService {
           this.saveToken(response.token);
 
           // Muestra la alerta de éxito
-          Swal.fire({
-            icon: 'success',
-            title: 'Inicio de sesión exitoso',
-            showConfirmButton: false,
-            timer: 1500
-          });
+          // Swal.fire({
+          //   icon: 'success',
+          //   title: 'Inicio de sesión exitoso',
+          //   showConfirmButton: false,
+          //   timer: 1500
+          // });
 
           // Redirige al usuario según la necesidad de cambio de contraseña
           if (response.RequirePasswordChange) {
