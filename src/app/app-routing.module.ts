@@ -19,7 +19,10 @@ const routes: Routes = [
   { path: 'Home', component: HomePageTComponent, canActivate: [AuthGuard] },
   { path: 'FormularioGallinas', component: FormGallinaTComponent, canActivate: [AuthGuard] },
   { path: 'TablaGallinas', component: TablePageTComponent, canActivate: [AuthGuard] },
-
+  { path: 'login', component: Login2Component },           // De ambos códigos      // Del primer bloque
+  { path: 'Home', component: SidebarComponent, canActivate: [AuthGuard] },
+  { path: 'FormularioGallinas', component: FormComponent, canActivate: [AuthGuard] },
+  { path: 'TablaGallinas', component: TableComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
