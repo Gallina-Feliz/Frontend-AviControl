@@ -19,6 +19,7 @@ import { LoginPageTComponent } from './components/templates/login-page-t/login-p
 import { HomePageTComponent } from './components/templates/home-page-t/home-page-t.component';
 import { TablePageTComponent } from './components/templates/table-page-t/table-page-t.component';
 import { FormGallinaTComponent } from './components/templates/form-gallina-t/form-gallina-t.component';
+import { FormGalponComponent } from './components/molecules/form-galpon/form-galpon.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FormGallinaTComponent } from './components/templates/form-gallina-t/for
     LoginPageTComponent,
     HomePageTComponent,
     TablePageTComponent,
-    FormGallinaTComponent
+    FormGallinaTComponent,
+    FormGalponComponent
   ],
   imports: [
     FormsModule,
@@ -57,7 +59,8 @@ import { FormGallinaTComponent } from './components/templates/form-gallina-t/for
     Login2Component,
     LoginPageTComponent,
     HomePageTComponent,
-    TablePageTComponent
+    TablePageTComponent,
+    FormGalponComponent
 
   ]
 })
