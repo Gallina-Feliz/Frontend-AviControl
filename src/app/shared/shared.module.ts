@@ -15,10 +15,15 @@ import { FormComponent } from './components/molecules/form/form.component';
 import { TableComponent } from './components/molecules/table/table.component';
 import { AlertFormComponent } from './components/organisms/alert-form/alert-form.component';
 import { Login2Component } from './components/molecules/login2/login2.component';
+
 import { LoginPageTComponent } from './components/templates/login-page-t/login-page-t.component';
 import { HomePageTComponent } from './components/templates/home-page-t/home-page-t.component';
 import { TablePageTComponent } from './components/templates/table-page-t/table-page-t.component';
 import { FormGallinaTComponent } from './components/templates/form-gallina-t/form-gallina-t.component';
+
+import { LineChartComponent } from './components/organisms/line-chart/line-chart.component';
+import { PieChartComponent } from './components/organisms/pie-chart/pie-chart.component';
+
 
 
 @NgModule({
@@ -38,7 +43,11 @@ import { FormGallinaTComponent } from './components/templates/form-gallina-t/for
     LoginPageTComponent,
     HomePageTComponent,
     TablePageTComponent,
-    FormGallinaTComponent
+    FormGallinaTComponent,
+    LineChartComponent,
+    PieChartComponent,
+
+
   ],
   imports: [
     FormsModule,
@@ -57,7 +66,9 @@ import { FormGallinaTComponent } from './components/templates/form-gallina-t/for
     Login2Component,
     LoginPageTComponent,
     HomePageTComponent,
-    TablePageTComponent
+    TablePageTComponent,
+    LineChartComponent,
+    PieChartComponent
 
   ]
 })
