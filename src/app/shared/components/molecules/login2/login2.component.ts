@@ -54,7 +54,9 @@ export class Login2Component implements OnInit {
             Swal.fire({
               icon: 'success',
               title: 'Inicio de sesión exitoso',
-              showConfirmButton: false,
+              showConfirmButton: true,
+              confirmButtonColor: '#3085d6',  // Color azul para el botón "OK"
+              confirmButtonText: 'OK',
               timer: 1500
             });
   
@@ -67,7 +69,9 @@ export class Login2Component implements OnInit {
             Swal.fire({
               icon: 'error',
               title: 'Error',
-              text: response.message || 'Error en el inicio de sesión'
+              text: response.message || 'Error en el inicio de sesión',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK',
             });
           }
         },
@@ -76,7 +80,10 @@ export class Login2Component implements OnInit {
           Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: error.message || 'Ocurrió un error durante el inicio de sesión'
+            text: error.message || 'Ocurrió un error durante el inicio de sesión',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+
           });
         }
       );
@@ -84,10 +91,10 @@ export class Login2Component implements OnInit {
       Swal.fire({
         icon: 'warning',
         title: 'Advertencia',
-        text: 'Por favor, complete todos los campos correctamente'
+        text: 'Por favor, complete todos los campos correctamente',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
       });
     }
   }
-  
-  
 }

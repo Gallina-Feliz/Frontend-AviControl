@@ -9,17 +9,26 @@ import Swal from 'sweetalert2';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  isDropdownVisible = false;
-  isUserDropdownVisible = false;
+  isMainDropdownVisible = false;
+  isNestedDropdownVisible = false;
+  isUserDropdownVisible = false; // Nueva propiedad para el dropdown de usuario
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  toggleDropdown() {
-    this.isDropdownVisible = !this.isDropdownVisible;
+  toggleMainDropdown() {
+    this.isMainDropdownVisible = !this.isMainDropdownVisible;
+    // Close the nested dropdown if main dropdown is toggled
+    if (!this.isMainDropdownVisible) {
+      this.isNestedDropdownVisible = false;
+    }
+  }
+
+  toggleNestedDropdown() {
+    this.isNestedDropdownVisible = !this.isNestedDropdownVisible;
   }
 
   toggleUserDropdown() {
-    this.isUserDropdownVisible = !this.isUserDropdownVisible;
+    this.isUserDropdownVisible = !this.isUserDropdownVisible; // Método para alternar la visibilidad del dropdown de usuario
   }
 
   signOut() {
@@ -28,7 +37,7 @@ export class SidebarComponent {
       text: 'Quieres cerrar sesión?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#F1AB0F',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, cerrar sesión',
       cancelButtonText: 'Cancelar'
