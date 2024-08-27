@@ -20,6 +20,7 @@ import { LoginPageTComponent } from './components/templates/login-page-t/login-p
 import { HomePageTComponent } from './components/templates/home-page-t/home-page-t.component';
 import { TablePageTComponent } from './components/templates/table-page-t/table-page-t.component';
 import { FormGallinaTComponent } from './components/templates/form-gallina-t/form-gallina-t.component';
+import { FormGalponComponent } from './components/molecules/form-galpon/form-galpon.component';
 
 import { LineChartComponent } from './components/organisms/line-chart/line-chart.component';
 import { PieChartComponent } from './components/organisms/pie-chart/pie-chart.component';
@@ -46,8 +47,7 @@ import { PieChartComponent } from './components/organisms/pie-chart/pie-chart.co
     FormGallinaTComponent,
     LineChartComponent,
     PieChartComponent,
-
-
+    FormGalponComponent
   ],
   imports: [
     FormsModule,
@@ -68,7 +68,9 @@ import { PieChartComponent } from './components/organisms/pie-chart/pie-chart.co
     HomePageTComponent,
     TablePageTComponent,
     LineChartComponent,
-    PieChartComponent
+    PieChartComponent,
+    FormGalponComponent
+
 
   ]
 })
