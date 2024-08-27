@@ -24,6 +24,7 @@ export class TableComponent implements OnInit {
         this.gallinas = data;
       },
       (error) => {
+        
         Swal.fire('Error', 'Error al cargar las gallinas', 'error');
         console.error('Error al cargar datos', error);
       }

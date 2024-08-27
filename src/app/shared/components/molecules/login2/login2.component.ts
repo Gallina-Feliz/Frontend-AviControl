@@ -70,8 +70,8 @@ export class Login2Component implements OnInit {
               icon: 'error',
               title: 'Error',
               text: response.message || 'Error en el inicio de sesión',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'OK',
+              confirmButtonColor: '#F1AB0F',
+              confirmButtonText: 'Aceptar',
             });
           }
         },
@@ -81,8 +81,8 @@ export class Login2Component implements OnInit {
             icon: 'error',
             title: 'Error',
             text: error.message || 'Ocurrió un error durante el inicio de sesión',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'OK'
+            confirmButtonColor: '#F1AB0F',
+            confirmButtonText: 'Aceptar'
           });
         }
       );
@@ -91,8 +91,8 @@ export class Login2Component implements OnInit {
         icon: 'warning',
         title: 'Advertencia',
         text: 'Por favor, complete todos los campos correctamente',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'OK'
+        confirmButtonColor: '#F1AB0F',
+        confirmButtonText: 'Aceptar'
       });
     }
   }

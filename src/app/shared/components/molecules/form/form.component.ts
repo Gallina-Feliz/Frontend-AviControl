@@ -8,16 +8,46 @@ import Swal from 'sweetalert2';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  razas: string[] = ['Raza 1', 'Raza 2', 'Raza 3']; // Lista de razas disponibles
-  gallina: any = {};
-  
+  gallina: any = {}; // Aquí se almacena la información de la gallina
+  galponExiste: boolean = false; // Variable para verificar si el galpón existe
 
   constructor(private gallinaService: GallinaService) {}
+
+  // Método para verificar si el número del galpón existe
+  checkNumeroGalpon() {
+    this.gallinaService.checkNumeroGalpon(this.gallina.numero_galpon).subscribe(
+      response => {
+        this.galponExiste = response.exists;
+        if (this.galponExiste) {
+          this.registerGallina();
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Galpón no encontrado',
+            text: 'El número del galpón no existe. Por favor, verifique e intente nuevamente.',
+            confirmButtonColor: '#d33'
+          });
+        }
+      },
+      error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al verificar',
+          text: 'Ocurrió un error al verificar el número del galpón.',
+          confirmButtonColor: '#d33'
+        });
+      }
+    );
+  }
+
+  // Método para manejar el estado del checkbox
+  toggleEnfermedad() {
+    this.gallina.esta_enferma = this.gallina.esta_enferma ? 'Sí' : 'No';
+  }
 
   registerGallina() {
     this.gallinaService.registerGallina(this.gallina).subscribe(
       response => {
-        // Mostrar alerta de éxito
         Swal.fire({
           icon: 'success',
           title: 'Registro exitoso',
@@ -26,12 +56,11 @@ export class FormComponent {
         });
       },
       error => {
-        // Mostrar alerta de error
         Swal.fire({
           icon: 'error',
           title: 'Error al registrar',
           text: 'Ocurrió un error al registrar la gallina. Inténtalo nuevamente.',
-          confirmButtonColor: '#d33¿'
+          confirmButtonColor: '#d33'
         });
       }
     );

@@ -1,52 +1,61 @@
 <!-- Contenido Principal -->
 <div class="flex-1 flex items-center justify-center min-h-screen p-4 transition-all duration-300">
-    <form (ngSubmit)="registerGallina()" class="max-w-md w-full mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <form (ngSubmit)="checkNumeroGalpon()" class="max-w-md w-full mx-auto bg-white p-8 rounded-lg shadow-lg">
         <h1 class="text-center mb-6 text-3xl font-bold custom-font custom-color">Formulario de las gallinas</h1>
 
+        <!-- Campo para la raza -->
         <div class="relative z-0 w-full mb-5 group">
             <select [(ngModel)]="gallina.raza" name="raza" id="floating_raza" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#da8a00] peer" required>
                 <option value="" disabled selected>Selecciona una raza</option>
                 <option value="Leghorn">Leghorn</option>
-                <option value="Rhode Island Red">Rhode Island Red</option>
-                <option value="Plymouth Rock">Plymouth Rock</option>
-                <option value="Austrian White">Austrian White</option>
-                <option value="Hy-Line Brown">Hy-Line Brown</option>
-                <option value="Isa Brown">Isa Brown</option>
-                <option value="Barnevelder">Barnevelder</option>
-                <option value="Orpington">Orpington</option>
-                <option value="Sussex">Sussex</option>
-                <!-- Agrega más razas aquí si lo deseas -->
+                <!-- Agrega más opciones aquí si lo deseas -->
             </select>
             <label for="floating_raza" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#da8a00] peer-focus:dark:text-[#da8a00] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Raza</label>
         </div>
 
+        <!-- Campo para la edad -->
         <div class="relative z-0 w-full mb-5 group">
             <select [(ngModel)]="gallina.edad" name="edad" id="floating_edad" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#da8a00] peer" required>
                 <option value="" disabled selected>Selecciona una edad</option>
                 <option value="1">1 año</option>
-                <option value="2">2 años</option>
-                <option value="3">3 años</option>
-                <option value="4">4 años</option>
-                <option value="5">5 años</option>
-                <option value="6">6 años</option>
-                <option value="7">7 años</option>
-                <option value="8">8 años</option>
-                <option value="9">9 años</option>
-                <option value="10">10 años</option>
-                <!-- Agrega más opciones si es necesario -->
+                <!-- Agrega más opciones aquí si lo deseas -->
             </select>
             <label for="floating_edad" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#da8a00] peer-focus:dark:text-[#da8a00] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Edad</label>
         </div>
 
+        <!-- Campo para el número del galpón -->
         <div class="relative z-0 w-full mb-5 group">
             <input [(ngModel)]="gallina.numero_galpon" name="numero_galpon" type="number" id="floating_numero_galpon" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#da8a00] peer" placeholder=" " required />
             <label for="floating_numero_galpon" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#da8a00] peer-focus:dark:text-[#da8a00] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Número del Galpón</label>
         </div>
 
-        <!-- Puedes agregar más campos aquí, como huevos diarios, temperatura, etc. -->
+        <!-- Campo para la temperatura -->
+        <div class="relative z-0 w-full mb-5 group">
+            <input [(ngModel)]="gallina.temp" name="temp" type="number" step="0.1" id="floating_temp" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#da8a00] peer" placeholder=" " />
+            <label for="floating_temp" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#da8a00] peer-focus:dark:text-[#da8a00] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Temperatura</label>
+        </div>
 
-        <button type="submit" class="text-white bg-[#da8a00] hover:bg-[#c77900] focus:ring-4 focus:outline-none focus:ring-[#da8a00] font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-[#da8a00] dark:hover:bg-[#c77900] dark:focus:ring-[#da8a00]">
-            Registrar
-        </button>
+        <!-- Campo para si está enferma -->
+        <div class="relative z-0 w-full mb-5 group">
+            <label for="esta_enferma" class="flex items-center">
+                <input [(ngModel)]="gallina.esta_enferma" name="esta_enferma" type="checkbox" id="esta_enferma" class="mr-2" (change)="toggleEnfermedad()" />
+                <span>Está enferma</span>
+            </label>
+        </div>
+
+        <!-- Submenú para enfermedad y medicamentos -->
+        <div *ngIf="gallina.esta_enferma === 'Sí'" class="mb-5">
+            <div class="relative z-0 w-full mb-5 group">
+                <input [(ngModel)]="gallina.que_enfermedad" name="que_enfermedad" type="text" id="floating_que_enfermedad" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#da8a00] peer" placeholder=" " />
+                <label for="floating_que_enfermedad" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#da8a00] peer-focus:dark:text-[#da8a00] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Qué enfermedad</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input [(ngModel)]="gallina.medicamentos" name="medicamentos" type="text" id="floating_medicamentos" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#da8a00] peer" placeholder=" " />
+                <label for="floating_medicamentos" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#da8a00] peer-focus:dark:text-[#da8a00] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Medicamentos</label>
+            </div>
+        </div>
+
+        <!-- Botón de envío -->
+        <button type="submit" class="w-full bg-[#da8a00] text-white py-2 px-4 rounded-lg hover:bg-[#F1AB0F] transition duration-300">Registrar Gallina</button>
     </form>
 </div>
