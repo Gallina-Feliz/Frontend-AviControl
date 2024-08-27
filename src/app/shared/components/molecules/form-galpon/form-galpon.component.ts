@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // Asegúrate de tener HttpClientModule importado en tu app.module.ts
+import { GalponService } from '../../../../core/services/Galponservice/galpon.service';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-form-galpon',
   templateUrl: './form-galpon.component.html',
@@ -8,27 +9,32 @@ import Swal from 'sweetalert2';
 })
 export class FormGalponComponent {
   // Datos del formulario, inicializados con valores vacíos o predeterminados
-  galpon = {
-    numero_galpon: 0, // Inicializa con un número
+  galpones = {
+    numero_galpon: 0,
     tipo_galpon: '',
-    huevos_diarios: 0,
-    numero_gallinas: 0, // Inicializa con un número
+    numero_gallinas: 0,
     alimento_diario: '',
     que_alimento: ''
   };
 
   // Opciones para los campos select
-  numeroGalponOptions = [0, 1, 2, 3];
-  huevosDiariosOptions = Array.from({ length: 101 }, (_, i) => i); // Opciones de 0 a 100
+  numeroGalponOptions = [ 1, 2, 3];
   numeroGallinasOptions = Array.from({ length: 1001 }, (_, i) => i); // Opciones de 0 a 1000
+  alimentoDiarioOptions = Array.from({ length: 11 }, (_, i) => i); // Opciones de 0 a 10 kg
+  queAlimentoOptions = ['Maíz', 'Soja', 'Trigo', 'Avena']; // Opciones de tipo de alimento
+  tipoGalponOptions = [
+    'Sistema intensivo (jaula)',
+    'Semiintensivo (piso)',
+    'Extensivo (pastoreo)'
+  ];
 
-  // Constructor con la inyección de dependencias de HttpClient
-  constructor(private http: HttpClient) {}
+  // Constructor con la inyección de dependencias de GalponService
+  constructor(private galponService: GalponService) {}
 
   // Método para validar y registrar el galpón
   registerGalpon() {
     // Validar el campo numero_galpon
-    if (this.galpon.numero_galpon < 0 || this.galpon.numero_galpon > 3) {
+    if (this.galpones.numero_galpon < 0 || this.galpones.numero_galpon > 3) {
       Swal.fire({
         icon: 'error',
         title: 'Error en los datos',
@@ -39,7 +45,7 @@ export class FormGalponComponent {
     }
 
     // Validar el campo numero_gallinas
-    if (this.galpon.numero_gallinas < 0) {
+    if (this.galpones.numero_gallinas < 0) {
       Swal.fire({
         icon: 'error',
         title: 'Error en los datos',
@@ -49,8 +55,7 @@ export class FormGalponComponent {
       return; // Detener el registro si la validación falla
     }
 
-    const url = 'URL_DE_TU_API';  // Reemplaza con la URL de tu API
-    this.http.post(url, this.galpon).subscribe(
+    this.galponService.createGalpon(this.galpones).subscribe(
       response => {
         // Mostrar alerta de éxito
         Swal.fire({
@@ -59,6 +64,9 @@ export class FormGalponComponent {
           text: 'El galpón ha sido registrado con éxito.',
           confirmButtonColor: '#F1AB0F'
         });
+
+        // Limpiar el formulario después de registrar exitosamente
+        this.resetForm();
       },
       error => {
         // Mostrar alerta de error
@@ -70,5 +78,16 @@ export class FormGalponComponent {
         });
       }
     );
+  }
+
+  // Método para limpiar el formulario
+  resetForm() {
+    this.galpones = {
+      numero_galpon: 0,
+      tipo_galpon: '',
+      numero_gallinas: 0,
+      alimento_diario: '',
+      que_alimento: ''
+    };
   }
 }

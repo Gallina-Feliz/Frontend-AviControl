@@ -12,17 +12,18 @@ import { LoginPageTComponent } from './shared/components/templates/login-page-t/
 import { HomePageTComponent } from './shared/components/templates/home-page-t/home-page-t.component';
 import { TablePageTComponent } from './shared/components/templates/table-page-t/table-page-t.component';
 import { FormGallinaTComponent } from './shared/components/templates/form-gallina-t/form-gallina-t.component';
+import { FormGalponTComponent } from './shared/components/templates/form-galpon-t/form-galpon-t.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginPageTComponent },           // De ambos códigos      // Del primer bloque
   { path: 'Home', component: HomePageTComponent, canActivate: [AuthGuard] },
   { path: 'FormularioGallinas', component: FormGallinaTComponent, canActivate: [AuthGuard] },
-  { path: 'TablaGallinas', component: TablePageTComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: Login2Component },           // De ambos códigos      // Del primer bloque
-  { path: 'Home', component: SidebarComponent, canActivate: [AuthGuard] },
-  { path: 'FormularioGallinas', component: FormComponent, canActivate: [AuthGuard] },
-  { path: 'TablaGallinas', component: TableComponent, canActivate: [AuthGuard] }
+  { path: 'FormularioGalpon', component: FormGalponTComponent, canActivate: [AuthGuard] },
+  { path: 'TablaGallinas', component: TablePageTComponent, canActivate: [AuthGuard] }
+
+
+
 ];
 
 @NgModule({

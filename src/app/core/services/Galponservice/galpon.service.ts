@@ -7,7 +7,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GalponService {
-  private apiUrl = ''; // URL de tu API
+  private apiUrl = 'https://localhost:44347/galpones'; // URL de tu API
 
   constructor(private http: HttpClient) { }
 
