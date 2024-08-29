@@ -27,6 +27,14 @@ export class Login2Component implements OnInit {
       input.addEventListener('blur', this.remcl);
     });
   }
+  navigateToLogin() {
+  this.router.navigate(['/login']);
+}
+
+navigateToRegister() {
+  this.router.navigate(['/register']);
+}
+
 
   addcl(this: HTMLInputElement) {
     const parent = this.parentNode?.parentNode as HTMLElement;
