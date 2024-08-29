@@ -11,7 +11,10 @@ import Swal from 'sweetalert2';
 export class SidebarComponent {
   isMainDropdownVisible = false;
   isNestedDropdownVisible = false;
-  isUserDropdownVisible = false; // Nueva propiedad para el dropdown de usuario
+  isUserDropdownVisible = false;
+  isHistorialGallinasVisible = false;
+  isVacunacionVisible = false;
+  isBitacoraVisible = false;// Nueva propiedad para el dropdown de usuario
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -29,6 +32,47 @@ export class SidebarComponent {
 
   toggleUserDropdown() {
     this.isUserDropdownVisible = !this.isUserDropdownVisible; // Método para alternar la visibilidad del dropdown de usuario
+  }
+
+  toggleHistorialGallinas() {
+    this.isHistorialGallinasVisible = !this.isHistorialGallinasVisible;
+    if (this.isHistorialGallinasVisible) {
+      this.isVacunacionVisible = false;
+      this.isBitacoraVisible = false;
+    }
+  }
+
+  toggleVacunacion() {
+    this.isVacunacionVisible = !this.isVacunacionVisible;
+    if (this.isVacunacionVisible) {
+      this.isHistorialGallinasVisible = false;
+      this.isBitacoraVisible = false;
+    }
+  }
+
+  toggleBitacora() {
+    this.isBitacoraVisible = !this.isBitacoraVisible;
+    if (this.isBitacoraVisible) {
+      this.isHistorialGallinasVisible = false;
+      this.isVacunacionVisible = false;
+    }
+  }
+
+  closeDropdowns(event: MouseEvent) {
+    const clickedInsideSidebar = (event.target as HTMLElement).closest('aside');
+    if (!clickedInsideSidebar) {
+      this.isHistorialGallinasVisible = false;
+      this.isVacunacionVisible = false;
+      this.isBitacoraVisible = false;
+    }
+  }
+
+  ngOnInit() {
+    document.addEventListener('click', this.closeDropdowns.bind(this));
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('click', this.closeDropdowns.bind(this));
   }
 
   signOut() {
