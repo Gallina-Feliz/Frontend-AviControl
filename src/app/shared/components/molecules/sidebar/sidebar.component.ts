@@ -14,7 +14,10 @@ export class SidebarComponent {
   isUserDropdownVisible = false;
   isHistorialGallinasVisible = false;
   isVacunacionVisible = false;
-  isBitacoraVisible = false;// Nueva propiedad para el dropdown de usuario
+  isBitacoraVisible = false;
+  isMonitoreoGalponesVisible = false;
+  isCuidadoGalponesVisible = false;
+  isEstadoGalponesVisible = false;// Nueva propiedad para el dropdown de usuario
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -66,6 +69,7 @@ export class SidebarComponent {
       this.isBitacoraVisible = false;
     }
   }
+  
 
   ngOnInit() {
     document.addEventListener('click', this.closeDropdowns.bind(this));
