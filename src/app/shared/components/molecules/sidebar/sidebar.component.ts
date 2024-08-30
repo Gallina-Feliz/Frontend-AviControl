@@ -16,14 +16,13 @@ export class SidebarComponent {
   isVacunacionVisible = false;
   isBitacoraVisible = false;
   isMonitoreoGalponesVisible = false;
-  isCuidadoGalponesVisible = false;
-  isEstadoGalponesVisible = false;// Nueva propiedad para el dropdown de usuario
+  isCuidadoGalponesVisible = false; // Nueva propiedad para el submenú "Cuidado Galpones"
+  isEstadoGalponesVisible = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   toggleMainDropdown() {
     this.isMainDropdownVisible = !this.isMainDropdownVisible;
-    // Close the nested dropdown if main dropdown is toggled
     if (!this.isMainDropdownVisible) {
       this.isNestedDropdownVisible = false;
     }
@@ -34,7 +33,7 @@ export class SidebarComponent {
   }
 
   toggleUserDropdown() {
-    this.isUserDropdownVisible = !this.isUserDropdownVisible; // Método para alternar la visibilidad del dropdown de usuario
+    this.isUserDropdownVisible = !this.isUserDropdownVisible;
   }
 
   toggleHistorialGallinas() {
@@ -61,15 +60,41 @@ export class SidebarComponent {
     }
   }
 
+  toggleMonitoreoGalpones() {
+    this.isMonitoreoGalponesVisible = !this.isMonitoreoGalponesVisible;
+    if (this.isMonitoreoGalponesVisible) {
+      this.isCuidadoGalponesVisible = false;
+      this.isEstadoGalponesVisible = false;
+    }
+  }
+
+  toggleCuidadoGalpones() {
+    this.isCuidadoGalponesVisible = !this.isCuidadoGalponesVisible;
+    if (this.isCuidadoGalponesVisible) {
+      this.isMonitoreoGalponesVisible = false;
+      this.isEstadoGalponesVisible = false;
+    }
+  }
+
+  toggleEstadoGalpones() {
+    this.isEstadoGalponesVisible = !this.isEstadoGalponesVisible;
+    if (this.isEstadoGalponesVisible) {
+      this.isMonitoreoGalponesVisible = false;
+      this.isCuidadoGalponesVisible = false;
+    }
+  }
+
   closeDropdowns(event: MouseEvent) {
     const clickedInsideSidebar = (event.target as HTMLElement).closest('aside');
     if (!clickedInsideSidebar) {
       this.isHistorialGallinasVisible = false;
       this.isVacunacionVisible = false;
       this.isBitacoraVisible = false;
+      this.isMonitoreoGalponesVisible = false;
+      this.isCuidadoGalponesVisible = false;
+      this.isEstadoGalponesVisible = false;
     }
   }
-  
 
   ngOnInit() {
     document.addEventListener('click', this.closeDropdowns.bind(this));
@@ -91,14 +116,14 @@ export class SidebarComponent {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.authService.logout();  // Llama al método de cierre de sesión del AuthService
+        this.authService.logout();
         Swal.fire({
           icon: 'success',
           title: 'Cierre de sesión exitoso',
           showConfirmButton: false,
           timer: 1500
         }).then(() => {
-          this.router.navigate(['/login']);  // Redirige al usuario a la página de login
+          this.router.navigate(['/login']);
         });
       }
     });
