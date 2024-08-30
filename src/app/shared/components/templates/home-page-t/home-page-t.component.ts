@@ -11,6 +11,7 @@ export class HomePageTComponent implements OnInit {
 
   constructor(private authService: AuthService) {}
 
+
   ngOnInit(): void {
     // Obtener el nombre del usuario desde el localStorage o hacer una solicitud a tu API
     const user = this.authService.getUserData(); // Esto dependerá de cómo estés gestionando el almacenamiento del usuario
