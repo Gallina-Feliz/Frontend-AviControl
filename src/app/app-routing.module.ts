@@ -13,6 +13,7 @@ import { HomePageTComponent } from './shared/components/templates/home-page-t/ho
 import { TablePageTComponent } from './shared/components/templates/table-page-t/table-page-t.component';
 import { FormGallinaTComponent } from './shared/components/templates/form-gallina-t/form-gallina-t.component';
 import { FormGalponTComponent } from './shared/components/templates/form-galpon-t/form-galpon-t.component';
+import { InicioComponent } from './shared/components/molecules/inicio/inicio.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'Home', component: HomePageTComponent, canActivate: [AuthGuard] },
   { path: 'FormularioGallinas', component: FormGallinaTComponent, canActivate: [AuthGuard] },
   { path: 'FormularioGalpon', component: FormGalponTComponent, canActivate: [AuthGuard] },
-  { path: 'TablaGallinas', component: TablePageTComponent, canActivate: [AuthGuard] }
+  { path: 'TablaGallinas', component: TablePageTComponent, canActivate: [AuthGuard] },
+  { path: '*', component: InicioComponent},
 
 
 
