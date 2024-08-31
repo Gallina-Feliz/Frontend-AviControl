@@ -26,8 +26,6 @@ import { LineChartComponent } from './components/organisms/line-chart/line-chart
 import { PieChartComponent } from './components/organisms/pie-chart/pie-chart.component';
 import { FormGalponTComponent } from './components/templates/form-galpon-t/form-galpon-t.component';
 
-import { InicioComponent } from './components/molecules/inicio/inicio.component';
-
 
 
 @NgModule({
@@ -51,8 +49,7 @@ import { InicioComponent } from './components/molecules/inicio/inicio.component'
     LineChartComponent,
     PieChartComponent,
     FormGalponComponent,
-    FormGalponTComponent,
-    InicioComponent
+    FormGalponTComponent
   ],
   imports: [
     FormsModule,
@@ -74,8 +71,7 @@ import { InicioComponent } from './components/molecules/inicio/inicio.component'
     TablePageTComponent,
     LineChartComponent,
     PieChartComponent,
-    FormGalponComponent,
-    InicioComponent
+    FormGalponComponent
 
 
   ]
