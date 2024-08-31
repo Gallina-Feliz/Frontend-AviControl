@@ -26,6 +26,8 @@ import { LineChartComponent } from './components/organisms/line-chart/line-chart
 import { PieChartComponent } from './components/organisms/pie-chart/pie-chart.component';
 import { FormGalponTComponent } from './components/templates/form-galpon-t/form-galpon-t.component';
 import { InicioComponent } from './components/molecules/inicio/inicio.component';
+import { TableGalponPageTComponent } from './components/templates/table-galpon-page-t/table-galpon-page-t.component';
+import { TableGalponesComponent } from './components/molecules/table-galpones/table-galpones.component';
 
 
 
@@ -51,7 +53,9 @@ import { InicioComponent } from './components/molecules/inicio/inicio.component'
     PieChartComponent,
     FormGalponComponent,
     FormGalponTComponent,
-    InicioComponent
+    InicioComponent,
+    TableGalponPageTComponent,
+    TableGalponesComponent
   ],
   imports: [
     FormsModule,
@@ -74,7 +78,9 @@ import { InicioComponent } from './components/molecules/inicio/inicio.component'
     LineChartComponent,
     PieChartComponent,
     FormGalponComponent,
-    InicioComponent
+    InicioComponent,
+    TableGalponPageTComponent,
+    TableGalponesComponent
 
 
   ]

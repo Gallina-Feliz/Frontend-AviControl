@@ -14,6 +14,7 @@ import { TablePageTComponent } from './shared/components/templates/table-page-t/
 import { FormGallinaTComponent } from './shared/components/templates/form-gallina-t/form-gallina-t.component';
 import { FormGalponTComponent } from './shared/components/templates/form-galpon-t/form-galpon-t.component';
 import { InicioComponent } from './shared/components/molecules/inicio/inicio.component';
+import { TableGalponPageTComponent } from './shared/components/templates/table-galpon-page-t/table-galpon-page-t.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'FormularioGallinas', component: FormGallinaTComponent, canActivate: [AuthGuard] },
   { path: 'FormularioGalpon', component: FormGalponTComponent, canActivate: [AuthGuard] },
   { path: 'TablaGallinas', component: TablePageTComponent, canActivate: [AuthGuard] },
+  { path: 'TablaGalpones', component: TableGalponPageTComponent, canActivate: [AuthGuard] },
   { path: '*', component: InicioComponent},
 
 
