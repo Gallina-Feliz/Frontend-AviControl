@@ -15,6 +15,7 @@ export class TableGalponesComponent  implements OnInit {
 
   ngOnInit(): void {
     this.getGalpones();
+    
   }
 
   getGalpones(): void {
