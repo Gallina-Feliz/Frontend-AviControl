@@ -5,41 +5,36 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
 export class GallinaService {
-  private apiUrl = 'https://localhost:44347/gallinas'; // Ajusta la URL según tu API
+  private apiUrl = `http://localhost:20821/Gallina`; // URL base de tu API
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  registerGallina(gallina: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, gallina);
+  // Método para obtener todas las gallinas
+  getGallinas(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/Listar`);
   }
 
-  getGallinas(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+// Método para actualizar una gallina
+updateGallina(gallina: any): Observable<any> {
+  const body = {
+    Codigo_Gallinas: gallina.Codigo_Gallinas,
+    Id_Raza: gallina.id_Raza,
+    Fecha_Nacimiento: gallina.fecha_Nacimiento,
+    Numero_Galpon: gallina.numero_Galpon
+  };
+
+  return this.http.put<any>(`http://localhost:20821/Gallina/Modificar`, body);
+}
+
+
+  // Método para agregar una gallina
+  addGallina(gallina: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/Agregar`, gallina);
   }
 
-  updateGallina(gallina: any): Observable<any> {
-    const body = {
-      codigo_gallina: gallina.codigo_gallina,
-      raza: gallina.raza,
-      edad: gallina.edad,
-      numero_galpon: gallina.numero_galpon,
-      huevos_diarios: gallina.huevos_diarios,
-      temp: gallina.temp,
-      esta_enferma: gallina.esta_enferma,
-      que_enfermedad: gallina.que_enfermedad,
-      medicamentos: gallina.medicamentos
-    };
-    return this.http.put(`${this.apiUrl}/update`, body);
-  }
-
-  deleteGallina(codigoGallina: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${codigoGallina}`);
-  }
-
-  // Nuevo método para verificar si el número del galpón existe
-  checkNumeroGalpon(numeroGalpon: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/check-galpon/${numeroGalpon}`);
+  // Método para eliminar una gallina
+  deleteGallina(codigo_Gallina: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/Eliminar/${codigo_Gallina}`);
   }
 }

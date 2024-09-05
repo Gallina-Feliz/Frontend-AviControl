@@ -18,24 +18,5 @@ export class FormComponent {
   }
 
   // Método para registrar la gallina
-  registerGallina() {
-    this.gallinaService.registerGallina(this.gallina).subscribe(
-      response => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Registro exitoso',
-          text: 'La gallina ha sido registrada con éxito.',
-          confirmButtonColor: '#F1AB0F'
-        });
-      },
-      error => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error al registrar',
-          text: 'Ocurrió un error al registrar la gallina. Inténtalo nuevamente.',
-          confirmButtonColor: '#d33'
-        });
-      }
-    );
-  }
+  
 }
