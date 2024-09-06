@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';  // Importa SweetAlert2
-import { AuthService } from '../../../../core/services/auth/auth.service';  // Asegúrate de que esté bien importado tu AuthService
+import Swal from 'sweetalert2';
+import { AuthService } from '../../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-login2',
@@ -15,8 +15,8 @@ export class Login2Component implements OnInit {
   };
 
   constructor(
-    private authService: AuthService,  // Servicio de autenticación
-    private router: Router  // Router para la navegación
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -27,14 +27,14 @@ export class Login2Component implements OnInit {
       input.addEventListener('blur', this.remcl);
     });
   }
+
   navigateToLogin() {
-  this.router.navigate(['/login']);
-}
+    this.router.navigate(['/login']);
+  }
 
-navigateToRegister() {
-  this.router.navigate(['/register']);
-}
-
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
 
   addcl(this: HTMLInputElement) {
     const parent = this.parentNode?.parentNode as HTMLElement;
@@ -48,50 +48,56 @@ navigateToRegister() {
     }
   }
 
-  // Lógica de inicio de sesión
   onLogin() {
     if (this.loginModel.Email && this.loginModel.Password) {
+      // Mostrar la alerta de cargando
+      Swal.fire({
+        title: 'Cargando',
+        text: 'Por favor, espere...',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+
       this.authService.login(this.loginModel).subscribe(
         (response) => {
-          console.log('Respuesta del servidor:', response);
-  
-          if (response && response.isSuccess) {
-            // Usa el método saveToken para guardar el token
-            this.authService.saveToken(response.token);
-  
-            // Aquí eliminas o comentas la alerta de éxito
-            /*
-            Swal.fire({
-              icon: 'success',
-              title: 'Inicio de sesión exitoso',  // Color azul para el botón "OK"
-              timer: 1800
-            });
-            */
-  
-            if (response.RequirePasswordChange) {
-              this.router.navigate(['/change-password']);
+          // Retrasar el cierre de la alerta para que se vea más tiempo
+          setTimeout(() => {
+            Swal.close(); // Cerrar la alerta de cargando
+
+            if (response && response.isSuccess) {
+              this.authService.saveToken(response.token);
+
+              if (response.RequirePasswordChange) {
+                this.router.navigate(['/change-password']);
+              } else {
+                this.router.navigate(['/Home']);
+              }
             } else {
-              this.router.navigate(['/Home']);
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: response.message || 'Error en el inicio de sesión',
+                confirmButtonColor: '#F1AB0F',
+                confirmButtonText: 'Aceptar',
+              });
             }
-          } else {
+          }, 1000);  // Esperar 1 segundo antes de cerrar la alerta
+        },
+        (error) => {
+          // Retrasar el cierre de la alerta en caso de error
+          setTimeout(() => {
+            Swal.close(); // Cerrar la alerta de cargando
+            console.error('Error en el inicio de sesión:', error);
             Swal.fire({
               icon: 'error',
               title: 'Error',
-              text: response.message || 'Error en el inicio de sesión',
+              text: error.message || 'Ocurrió un error durante el inicio de sesión',
               confirmButtonColor: '#F1AB0F',
-              confirmButtonText: 'Aceptar',
+              confirmButtonText: 'Aceptar'
             });
-          }
-        },
-        (error) => {
-          console.error('Error en el inicio de sesión:', error);
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: error.message || 'Ocurrió un error durante el inicio de sesión',
-            confirmButtonColor: '#F1AB0F',
-            confirmButtonText: 'Aceptar'
-          });
+          }, 1000);  // Esperar 1 segundo antes de cerrar la alerta
         }
       );
     } else {
@@ -104,5 +110,4 @@ navigateToRegister() {
       });
     }
   }
-  
 }
