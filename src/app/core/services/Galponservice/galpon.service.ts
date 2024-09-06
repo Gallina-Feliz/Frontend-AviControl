@@ -1,49 +1,40 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GalponService {
-  private apiUrl = 'https://localhost:44347/galpones'; // URL de tu API
+  private apiUrl = 'http://localhost:20821/Galpones'; // Cambia la URL a la correcta
 
   constructor(private http: HttpClient) { }
 
-  // Obtener todos los galpones
-  getGalpones(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl).pipe(
-      catchError(this.handleError)
-    );
+  // Obtener lista de galpones
+  getGalpones(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/Listar`)
+      .pipe(catchError(this.handleError));
   }
 
-  // Obtener un galpón por ID
-  getGalponById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  // Crear un nuevo galpón
+  // Registrar un nuevo galpón
   createGalpon(galpon: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, galpon).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.post<any>(`${this.apiUrl}/Crear`, galpon)
+      .pipe(catchError(this.handleError));
   }
 
-  // Actualizar un galpón
-  updateGalpon(id: number, galpon: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, galpon).pipe(
-      catchError(this.handleError)
-    );
+  // Actualizar un galpón existente
+  updateGalpon(galpon: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/Actualizar`, galpon)
+      .pipe(catchError(this.handleError));
   }
+  
 
-  // Eliminar un galpón
-  deleteGalpon(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`).pipe(
-      catchError(this.handleError)
-    );
+
+  // Método para eliminar un galpón
+  deleteGalpon(data: { numero_Galpon: number, nuevo_Numero_Galpon: number }): Observable<any> {
+    const url = `http://localhost:20821/Galpones/Eliminar`;
+    return this.http.post<any>(url, data); // Cambiado a POST para enviar el cuerpo
   }
 
   // Manejo de errores

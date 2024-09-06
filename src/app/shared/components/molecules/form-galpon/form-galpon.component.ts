@@ -11,22 +11,8 @@ export class FormGalponComponent {
   // Datos del formulario, inicializados con valores vacíos o predeterminados
   galpones = {
     numero_galpon: 0,
-    tipo_galpon: '',
-    numero_gallinas: 0,
-    alimento_diario: '',
-    que_alimento: ''
+    tipo_galpon: ''
   };
-
-  // Opciones para los campos select
-  numeroGalponOptions = [ 1, 2, 3];
-  numeroGallinasOptions = Array.from({ length: 1001 }, (_, i) => i); // Opciones de 0 a 1000
-  alimentoDiarioOptions = Array.from({ length: 11 }, (_, i) => i); // Opciones de 0 a 10 kg
-  queAlimentoOptions = ['Maíz', 'Soja', 'Trigo', 'Avena']; // Opciones de tipo de alimento
-  tipoGalponOptions = [
-    'Sistema intensivo (jaula)',
-    'Semiintensivo (piso)',
-    'Extensivo (pastoreo)'
-  ];
 
   // Constructor con la inyección de dependencias de GalponService
   constructor(private galponService: GalponService) {}
@@ -34,22 +20,11 @@ export class FormGalponComponent {
   // Método para validar y registrar el galpón
   registerGalpon() {
     // Validar el campo numero_galpon
-    if (this.galpones.numero_galpon < 0 || this.galpones.numero_galpon > 3) {
+    if (this.galpones.numero_galpon < 0 || this.galpones.numero_galpon > 10) {
       Swal.fire({
         icon: 'error',
         title: 'Error en los datos',
-        text: 'El número del galpón debe estar entre 0 y 3.',
-        confirmButtonColor: '#d33'
-      });
-      return; // Detener el registro si la validación falla
-    }
-
-    // Validar el campo numero_gallinas
-    if (this.galpones.numero_gallinas < 0) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error en los datos',
-        text: 'El número de gallinas no puede ser negativo.',
+        text: 'El número del galpón debe estar entre 0 y 10.',
         confirmButtonColor: '#d33'
       });
       return; // Detener el registro si la validación falla
@@ -84,10 +59,7 @@ export class FormGalponComponent {
   resetForm() {
     this.galpones = {
       numero_galpon: 0,
-      tipo_galpon: '',
-      numero_gallinas: 0,
-      alimento_diario: '',
-      que_alimento: ''
+      tipo_galpon: ''
     };
   }
 }
