@@ -9,17 +9,99 @@ import Swal from 'sweetalert2';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  isDropdownVisible = false;
+  isMainDropdownVisible = false;
+  isNestedDropdownVisible = false;
   isUserDropdownVisible = false;
+  isHistorialGallinasVisible = false;
+  isVacunacionVisible = false;
+  isBitacoraVisible = false;
+  isMonitoreoGalponesVisible = false;
+  isCuidadoGalponesVisible = false; // Nueva propiedad para el submenú "Cuidado Galpones"
+  isEstadoGalponesVisible = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  toggleDropdown() {
-    this.isDropdownVisible = !this.isDropdownVisible;
+  toggleMainDropdown() {
+    this.isMainDropdownVisible = !this.isMainDropdownVisible;
+    if (!this.isMainDropdownVisible) {
+      this.isNestedDropdownVisible = false;
+    }
+  }
+
+  toggleNestedDropdown() {
+    this.isNestedDropdownVisible = !this.isNestedDropdownVisible;
   }
 
   toggleUserDropdown() {
     this.isUserDropdownVisible = !this.isUserDropdownVisible;
+  }
+
+  toggleHistorialGallinas() {
+    this.isHistorialGallinasVisible = !this.isHistorialGallinasVisible;
+    if (this.isHistorialGallinasVisible) {
+      this.isVacunacionVisible = false;
+      this.isBitacoraVisible = false;
+    }
+  }
+
+  toggleVacunacion() {
+    this.isVacunacionVisible = !this.isVacunacionVisible;
+    if (this.isVacunacionVisible) {
+      this.isHistorialGallinasVisible = false;
+      this.isBitacoraVisible = false;
+    }
+  }
+
+  toggleBitacora() {
+    this.isBitacoraVisible = !this.isBitacoraVisible;
+    if (this.isBitacoraVisible) {
+      this.isHistorialGallinasVisible = false;
+      this.isVacunacionVisible = false;
+    }
+  }
+
+  toggleMonitoreoGalpones() {
+    this.isMonitoreoGalponesVisible = !this.isMonitoreoGalponesVisible;
+    if (this.isMonitoreoGalponesVisible) {
+      this.isCuidadoGalponesVisible = false;
+      this.isEstadoGalponesVisible = false;
+    }
+  }
+
+  toggleCuidadoGalpones() {
+    this.isCuidadoGalponesVisible = !this.isCuidadoGalponesVisible;
+    if (this.isCuidadoGalponesVisible) {
+      this.isMonitoreoGalponesVisible = false;
+      this.isEstadoGalponesVisible = false;
+    }
+  }
+
+  toggleEstadoGalpones() {
+    this.isEstadoGalponesVisible = !this.isEstadoGalponesVisible;
+    if (this.isEstadoGalponesVisible) {
+      this.isMonitoreoGalponesVisible = false;
+      this.isCuidadoGalponesVisible = false;
+    }
+  }
+
+  closeDropdowns(event: MouseEvent) {
+    const clickedInsideSidebar = (event.target as HTMLElement).closest('aside');
+    if (!clickedInsideSidebar) {
+      this.isHistorialGallinasVisible = false;
+      this.isVacunacionVisible = false;
+      this.isBitacoraVisible = false;
+      this.isMonitoreoGalponesVisible = false;
+      this.isCuidadoGalponesVisible = false;
+      this.isEstadoGalponesVisible = false;
+    }
+  }
+
+  ngOnInit() {
+    document.addEventListener('click', this.closeDropdowns.bind(this));
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('click', this.closeDropdowns.bind(this));
   }
 
   signOut() {
@@ -28,20 +110,20 @@ export class SidebarComponent {
       text: 'Quieres cerrar sesión?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#F1AB0F',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, cerrar sesión',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.authService.logout();  // Llama al método de cierre de sesión del AuthService
+        this.authService.logout();
         Swal.fire({
           icon: 'success',
           title: 'Cierre de sesión exitoso',
           showConfirmButton: false,
           timer: 1500
         }).then(() => {
-          this.router.navigate(['/login']);  // Redirige al usuario a la página de login
+          this.router.navigate(['/login']);
         });
       }
     });

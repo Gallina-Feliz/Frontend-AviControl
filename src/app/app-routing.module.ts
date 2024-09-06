@@ -8,13 +8,28 @@ import { FormComponent } from "../app/shared/components/molecules/form/form.comp
 import { TableComponent } from "../app/shared/components/molecules/table/table.component";
 import { LoginPageComponent } from './features/salud-gallinas/pages/login-page/login-page.component';
 import { SidebarComponent } from './shared/components/molecules/sidebar/sidebar.component';
+import { LoginPageTComponent } from './shared/components/templates/login-page-t/login-page-t.component';
+import { HomePageTComponent } from './shared/components/templates/home-page-t/home-page-t.component';
+import { TablePageTComponent } from './shared/components/templates/table-page-t/table-page-t.component';
+import { FormGallinaTComponent } from './shared/components/templates/form-gallina-t/form-gallina-t.component';
+import { FormGalponTComponent } from './shared/components/templates/form-galpon-t/form-galpon-t.component';
+import { InicioComponent } from './shared/components/molecules/inicio/inicio.component';
+import { TableGalponPageTComponent } from './shared/components/templates/table-galpon-page-t/table-galpon-page-t.component';
+import { EstadisticaGallinaTComponent } from './shared/components/templates/estadistica-gallina-t/estadistica-gallina-t.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: Login2Component },           // De ambos códigos      // Del primer bloque
-  { path: 'Home', component: SidebarComponent, canActivate: [AuthGuard] },
-  { path: 'FormularioGallinas', component: FormComponent, canActivate: [AuthGuard] },
-  { path: 'TablaGallinas', component: TableComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginPageTComponent },           // De ambos códigos      // Del primer bloque
+  { path: 'Home', component: HomePageTComponent, canActivate: [AuthGuard] },
+  { path: 'FormularioGallinas', component: FormGallinaTComponent, canActivate: [AuthGuard] },
+  { path: 'FormularioGalpon', component: FormGalponTComponent, canActivate: [AuthGuard] },
+  { path: 'TablaGallinas', component: TablePageTComponent, canActivate: [AuthGuard] },
+  { path: 'TablaGalpones', component: TableGalponPageTComponent, canActivate: [AuthGuard] },
+  { path: 'EstadisticasGallinas', component: EstadisticaGallinaTComponent, canActivate: [AuthGuard] },
+
+  { path: '*', component: InicioComponent},
+
+
 
 ];
 

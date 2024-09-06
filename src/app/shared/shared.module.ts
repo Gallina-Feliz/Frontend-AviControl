@@ -16,6 +16,21 @@ import { TableComponent } from './components/molecules/table/table.component';
 import { AlertFormComponent } from './components/organisms/alert-form/alert-form.component';
 import { Login2Component } from './components/molecules/login2/login2.component';
 
+import { LoginPageTComponent } from './components/templates/login-page-t/login-page-t.component';
+import { HomePageTComponent } from './components/templates/home-page-t/home-page-t.component';
+import { TablePageTComponent } from './components/templates/table-page-t/table-page-t.component';
+import { FormGallinaTComponent } from './components/templates/form-gallina-t/form-gallina-t.component';
+import { FormGalponComponent } from './components/molecules/form-galpon/form-galpon.component';
+
+import { LineChartComponent } from './components/organisms/line-chart/line-chart.component';
+import { PieChartComponent } from './components/organisms/pie-chart/pie-chart.component';
+import { FormGalponTComponent } from './components/templates/form-galpon-t/form-galpon-t.component';
+import { InicioComponent } from './components/molecules/inicio/inicio.component';
+import { TableGalponPageTComponent } from './components/templates/table-galpon-page-t/table-galpon-page-t.component';
+import { TableGalponesComponent } from './components/molecules/table-galpones/table-galpones.component';
+import { EstadisticaGallinaTComponent } from './components/templates/estadistica-gallina-t/estadistica-gallina-t.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +45,19 @@ import { Login2Component } from './components/molecules/login2/login2.component'
     FormComponent,
     TableComponent,
     AlertFormComponent,
-    Login2Component
+    Login2Component,
+    LoginPageTComponent,
+    HomePageTComponent,
+    TablePageTComponent,
+    FormGallinaTComponent,
+    LineChartComponent,
+    PieChartComponent,
+    FormGalponComponent,
+    FormGalponTComponent,
+    InicioComponent,
+    TableGalponPageTComponent,
+    TableGalponesComponent,
+    EstadisticaGallinaTComponent
   ],
   imports: [
     FormsModule,
@@ -46,7 +73,18 @@ import { Login2Component } from './components/molecules/login2/login2.component'
     FormComponent,
     TableComponent,
     AlertFormComponent,
-    Login2Component
+    Login2Component,
+    LoginPageTComponent,
+    HomePageTComponent,
+    TablePageTComponent,
+    LineChartComponent,
+    PieChartComponent,
+    FormGalponComponent,
+    InicioComponent,
+    TableGalponPageTComponent,
+    TableGalponesComponent
+
+
   ]
 })
 export class SharedModule { }

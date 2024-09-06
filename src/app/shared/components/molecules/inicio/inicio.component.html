@@ -1,0 +1,41 @@
+<div class="hero-container">
+    <!-- Header con logo y botones -->
+    <header class="header">
+        
+            <img src="../../../../../assets/images/Logo.jpg" alt="Logo" class="logo-img">
+            <p class="logo-text">
+                <span class="text-blue">AVI</span><span class="text-black">CONTROL</span>
+            </p>
+        
+            <nav class="nav-buttons">
+                <input type="button" value="Ingresar" (click)="navigateToLogin()" class="btn-login">
+                <input type="button" value="Registrate" (click)="navigateToRegister()" class="btn-register">
+              </nav>
+              
+    </header>
+
+</div>
+
+<!-- Carrusel de imágenes de fondo -->
+<div class="carousel">
+    <img *ngFor="let image of carouselImages; let i = index" 
+         [src]="image" 
+         [class.active]="i === activeImageIndex" 
+         alt="Fondo {{i + 1}}">
+</div>
+
+<!-- Sección Sobre Nosotros -->
+<section class="about-us">
+    <div class="about-content">
+        <h2>Sobre Nosotros</h2>
+        <p>En Avicontrol, nos dedicamos a facilitar la vida de los avicultores a través de nuestra plataforma de control para gallinas ponedoras. Ofrecemos una herramienta sencilla y eficiente para monitorear la salud de las aves, ayudando a optimizar las operaciones y mejorar el rendimiento de las granjas. Creemos en el poder de la tecnología para transformar la avicultura, y estamos aquí para apoyar a los avicultores en su camino hacia el éxito.</p>
+    </div>
+</section>
+<section class="equipo-tra">
+    <div class="equipo-trabajo">
+        <h2>Equipo de trabajo</h2>
+        <p>Nosotros somos un equipo de desarrolladores que quieren aportar desde el conocimiento de desarrollo de software
+            a aquellos avicultores, nuestra intencion es facilitarle al avicultor el trabajo de llevar el registro de los galpones y las gallinas, con un historial de la salud de cada gallina y tambien a la hora de querer consultar el estado de un galpon o una gallina.
+        </p>
+    </div>
+</section>

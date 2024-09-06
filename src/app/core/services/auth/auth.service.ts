@@ -18,16 +18,9 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/Login`, credentials).pipe(
       tap(response => {
         if (response && response.isSuccess) {
-          // Guarda el token en localStorage usando el nuevo método saveToken
+          // Guarda el token y los datos del usuario en localStorage
           this.saveToken(response.token);
-
-          // Muestra la alerta de éxito
-          Swal.fire({
-            icon: 'success',
-            title: 'Inicio de sesión exitoso',
-            showConfirmButton: false,
-            timer: 1500
-          });
+          this.saveUserData(response.user);  // Guarda los datos del usuario
 
           // Redirige al usuario según la necesidad de cambio de contraseña
           if (response.RequirePasswordChange) {
@@ -36,7 +29,6 @@ export class AuthService {
             this.router.navigate(['/Home']);
           }
         } else {
-          // Muestra alerta si las credenciales son incorrectas
           Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -54,11 +46,22 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
+  // Método para guardar los datos del usuario
+  saveUserData(user: any): void {
+    localStorage.setItem('userData', JSON.stringify(user));  // Almacena los datos del usuario
+  }
+
+  // Método para obtener los datos del usuario
+  getUserData(): any {
+    const userData = localStorage.getItem('userData');
+    return userData ? JSON.parse(userData) : null;
+  }
+
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('userData');  // Limpia los datos del usuario
     this.router.navigate(['/login']);
 
-    // Alerta de cierre de sesión
     Swal.fire({
       icon: 'info',
       title: 'Cierre de sesión exitoso',
@@ -87,7 +90,6 @@ export class AuthService {
       }
     }
 
-    // Muestra la alerta de error con SweetAlert2
     Swal.fire({
       icon: 'error',
       title: 'Error',
