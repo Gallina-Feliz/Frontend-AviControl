@@ -28,6 +28,7 @@ import { FormGalponTComponent } from './components/templates/form-galpon-t/form-
 import { InicioComponent } from './components/molecules/inicio/inicio.component';
 import { TableGalponPageTComponent } from './components/templates/table-galpon-page-t/table-galpon-page-t.component';
 import { TableGalponesComponent } from './components/molecules/table-galpones/table-galpones.component';
+import { EstadisticaGallinaTComponent } from './components/templates/estadistica-gallina-t/estadistica-gallina-t.component';
 
 
 
@@ -55,7 +56,8 @@ import { TableGalponesComponent } from './components/molecules/table-galpones/ta
     FormGalponTComponent,
     InicioComponent,
     TableGalponPageTComponent,
-    TableGalponesComponent
+    TableGalponesComponent,
+    EstadisticaGallinaTComponent
   ],
   imports: [
     FormsModule,

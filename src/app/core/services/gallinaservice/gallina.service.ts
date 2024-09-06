@@ -27,10 +27,14 @@ updateGallina(gallina: any): Observable<any> {
   return this.http.put<any>(`http://localhost:20821/Gallina/Modificar`, body);
 }
 
+listarGallinas() {
+  return this.http.get(`${this.apiUrl}/Listar`);
+}
 
 registrarGallina(gallinaData: any) {
-  return this.http.post(`${this.apiUrl}/Insert`, gallinaData);
+  return this.http.post(`${this.apiUrl}/Crear`, gallinaData);
 }
+
 
   // Método para eliminar una gallina
   deleteGallina(codigo_Gallina: number): Observable<any> {

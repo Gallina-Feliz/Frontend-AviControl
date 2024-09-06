@@ -56,7 +56,8 @@ export class TableComponent implements OnInit {
             title: 'Éxito',
             text: 'La gallina ha sido actualizada con éxito',
             icon: 'success',
-            confirmButtonText: 'Ok'
+
+            confirmButtonText: 'Aceptar'
           });
           this.loadGallinas();  // Recargar datos después de la actualización
           this.cancelEdit();  // Cerrar el formulario de edición
@@ -66,7 +67,7 @@ export class TableComponent implements OnInit {
             title: 'Error',
             text: `Error al actualizar la gallina: ${error.message}`,
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Aceptar'
           });
           console.error('Error al actualizar la gallina', error);
         }

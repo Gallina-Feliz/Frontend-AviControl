@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// Necesitamos importar Chart desde chart.js/auto
 import { Chart, ChartType } from 'chart.js/auto';
 
 @Component({
@@ -9,44 +8,53 @@ import { Chart, ChartType } from 'chart.js/auto';
 })
 export class LineChartComponent implements OnInit {
 
-  // Atributo que almacena los datos del chart
   public chart?: Chart;
 
   ngOnInit(): void {
-
-    // datos
+    // Hypothetical data for registered chickens per month
     const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
       datasets: [{
-        label: 'My First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: 'Number of Chickens Registered',
+        data: [150, 230, 180, 220, 300, 250, 320, 400], // Imaginary numbers for chickens
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1
       }]
     };
 
-    // Creamos la gráfica
+    // Create the chart
     this.chart = new Chart("chart", {
-      type: 'line' as ChartType, // tipo de la gráfica
+      type: 'line' as ChartType,
       data: data,
       options: {
-        responsive: true, // Hace que el gráfico sea sensible al tamaño del contenedor
-        maintainAspectRatio: false, // Permite cambiar la relación de aspecto
+        responsive: true,
+        maintainAspectRatio: false,
         layout: {
           padding: {
             left: 4,
             right: 4,
             top: 0,
             bottom: 0,
-            
           },
-          
+        },
+        scales: {
+          y: {
+            beginAtZero: true, // Start y-axis from zero
+            title: {
+              display: true,
+              text: 'Number of Chickens',
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Months',
+            }
+          }
         }
       }
     });
-
-
   }
 
 }

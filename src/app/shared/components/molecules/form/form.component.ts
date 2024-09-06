@@ -9,32 +9,41 @@ import Swal from 'sweetalert2';
 })
 export class FormComponent {
   gallina: any = {
-    codigo_gallina: '',
-    raza: '',
-    edad: 0,
-    numero_galpon: 0,
-    temp: null,
-    esta_enferma: 'No', // Por defecto, no está enferma
-    que_enfermedad: '',
-    medicamentos: ''
+    codigo_Gallinas: 0,
+    id_Raza: 0,
+    numero_Galpon: 0,
+    fecha_Nacimiento: '' // Esto será una fecha en formato ISO
   };
 
   constructor(private gallinaService: GallinaService) {}
 
-  // Método para manejar el estado del checkbox
-  toggleEnfermedad() {
-    this.gallina.esta_enferma = this.gallina.esta_enferma === 'Sí' ? 'No' : 'Sí';
-  }
-
   // Método para registrar la gallina
   registrarGallina() {
-    // Mapear los datos del formulario al formato esperado por la API
+    // Validaciones
+    if (this.gallina.codigo_Gallinas <= 0) {
+      Swal.fire('Advertencia', 'El código de la gallina debe ser mayor que 0', 'warning');
+      return;
+    }
+
+    if (this.gallina.id_Raza <= 0) {
+      Swal.fire('Advertencia', 'El ID de la raza debe ser mayor que 0', 'warning');
+      return;
+    }
+
+    const fechaNacimiento = new Date(this.gallina.fecha_Nacimiento);
+    const fechaActual = new Date();
+
+    if (fechaNacimiento > fechaActual) {
+      Swal.fire('Advertencia', 'La fecha de nacimiento no puede ser posterior a la fecha actual', 'warning');
+      return;
+    }
+
+    // Asegurarse de que los datos se envíen correctamente al servicio
     const gallinaData = {
-      codigo_Gallinas: this.gallina.Codigo_Gallina,
-      fecha_ingreso: new Date().toISOString(), // La fecha de ingreso se genera automáticamente
-      fecha_Nacimiento: this.calcularFechaNacimiento(this.gallina.edad), // Ejemplo para calcular la fecha de nacimiento
-      id_Raza: this.gallina.raza, // Se puede adaptar si usas un id en lugar del nombre de la raza
-      numero_Galpon: this.gallina.numero_galpon
+      codigo_Gallinas: this.gallina.codigo_Gallinas,
+      id_Raza: this.gallina.id_Raza,
+      numero_Galpon: this.gallina.numero_Galpon,
+      fecha_Nacimiento: fechaNacimiento.toISOString() // Convertir la fecha al formato ISO
     };
 
     this.gallinaService.registrarGallina(gallinaData).subscribe(
@@ -49,24 +58,13 @@ export class FormComponent {
     );
   }
 
-  // Método auxiliar para calcular la fecha de nacimiento
-  calcularFechaNacimiento(edad: number): string {
-    const hoy = new Date();
-    const fechaNacimiento = new Date(hoy.setFullYear(hoy.getFullYear() - edad));
-    return fechaNacimiento.toISOString();
-  }
-
   // Método para limpiar el formulario
   limpiarFormulario() {
     this.gallina = {
-      codigo_gallina: '',
-      raza: '',
-      edad: 0,
-      numero_galpon: 0,
-      temp: null,
-      esta_enferma: 'No',
-      que_enfermedad: '',
-      medicamentos: ''
+      codigo_Gallinas: 0,
+      id_Raza: 0,
+      numero_Galpon: 0,
+      fecha_Nacimiento: ''
     };
   }
 }
