@@ -28,10 +28,9 @@ updateGallina(gallina: any): Observable<any> {
 }
 
 
-  // Método para agregar una gallina
-  addGallina(gallina: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/Agregar`, gallina);
-  }
+registrarGallina(gallinaData: any) {
+  return this.http.post(`${this.apiUrl}/Insert`, gallinaData);
+}
 
   // Método para eliminar una gallina
   deleteGallina(codigo_Gallina: number): Observable<any> {
