@@ -71,7 +71,7 @@ export class TableGalponesComponent implements OnInit {
     };
   }
 
-  deleteGalpon(): void {
+  DeleteGalpon(): void {
     if (this.deleteGalponId !== null) {
       // Asume que el nuevo número de galpón está configurado correctamente
       this.deleteGalponData.numero_Galpon = this.deleteGalponId;
@@ -87,7 +87,7 @@ export class TableGalponesComponent implements OnInit {
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.galponService.deleteGalpon(this.deleteGalponData).subscribe(
+          this.galponService.DeleteGalpon(this.deleteGalponData).subscribe(
             () => {
               Swal.fire('Eliminado', 'El galpón ha sido eliminado con éxito', 'success');
               this.getGalpones(); // Actualiza la lista después de la eliminación

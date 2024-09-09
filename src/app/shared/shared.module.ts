@@ -31,12 +31,13 @@ import { TableGalponesComponent } from './components/molecules/table-galpones/ta
 import { EstadisticaGallinaTComponent } from './components/templates/estadistica-gallina-t/estadistica-gallina-t.component';
 import { FormularioSaludGallinasComponent } from './components/molecules/formulario-salud-gallinas/formulario-salud-gallinas.component';
 import { SaludGallinaPageTComponent } from './components/templates/salud-gallina-page-t/salud-gallina-page-t.component';
+import { TablaSaludGComponent } from './components/molecules/tabla-salud-g/tabla-salud-g.component';
+import { TablaSaludGallinasComponent } from './components/templates/tabla-salud-gallinas/tabla-salud-gallinas.component';
 
 
 
 @NgModule({
   declarations: [
-
     UrlComponent,
     H1Component,
     ButtonsComponent,
@@ -61,7 +62,9 @@ import { SaludGallinaPageTComponent } from './components/templates/salud-gallina
     TableGalponesComponent,
     EstadisticaGallinaTComponent,
     FormularioSaludGallinasComponent,
-    SaludGallinaPageTComponent
+    SaludGallinaPageTComponent,
+    TablaSaludGComponent,
+    TablaSaludGallinasComponent
   ],
   imports: [
     FormsModule,
@@ -73,6 +76,7 @@ import { SaludGallinaPageTComponent } from './components/templates/salud-gallina
     ButtonsComponent,
     AvatarComponent,
     IconComponent,
+    InputsComponent,
     SidebarComponent,
     FormComponent,
     TableComponent,
@@ -81,13 +85,18 @@ import { SaludGallinaPageTComponent } from './components/templates/salud-gallina
     LoginPageTComponent,
     HomePageTComponent,
     TablePageTComponent,
+    FormGallinaTComponent,
     LineChartComponent,
     PieChartComponent,
     FormGalponComponent,
+    FormGalponTComponent,
     InicioComponent,
     TableGalponPageTComponent,
-    TableGalponesComponent
-
+    TableGalponesComponent,
+    EstadisticaGallinaTComponent,
+    FormularioSaludGallinasComponent,
+    SaludGallinaPageTComponent,
+    TablaSaludGComponent
 
   ]
 })
