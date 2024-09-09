@@ -29,6 +29,8 @@ import { InicioComponent } from './components/molecules/inicio/inicio.component'
 import { TableGalponPageTComponent } from './components/templates/table-galpon-page-t/table-galpon-page-t.component';
 import { TableGalponesComponent } from './components/molecules/table-galpones/table-galpones.component';
 import { EstadisticaGallinaTComponent } from './components/templates/estadistica-gallina-t/estadistica-gallina-t.component';
+import { FormularioSaludGallinasComponent } from './components/molecules/formulario-salud-gallinas/formulario-salud-gallinas.component';
+import { SaludGallinaPageTComponent } from './components/templates/salud-gallina-page-t/salud-gallina-page-t.component';
 
 
 
@@ -57,7 +59,9 @@ import { EstadisticaGallinaTComponent } from './components/templates/estadistica
     InicioComponent,
     TableGalponPageTComponent,
     TableGalponesComponent,
-    EstadisticaGallinaTComponent
+    EstadisticaGallinaTComponent,
+    FormularioSaludGallinasComponent,
+    SaludGallinaPageTComponent
   ],
   imports: [
     FormsModule,
