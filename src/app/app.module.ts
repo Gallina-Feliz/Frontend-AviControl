@@ -8,8 +8,11 @@ import { AuthInterceptor } from '../app/core/interceptor/auth-interceptor/auth.i
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SaludGallinasRoutingModule } from './features/salud-gallinas/salud-gallinas-routing.module';
+import Swal from 'sweetalert2';
 
-
+Swal.mixin({
+  confirmButtonColor: '#F1AB0F'
+});
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { SaludGallinasRoutingModule } from './features/salud-gallinas/salud-gall
 
 
   ],
+  
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
