@@ -1,0 +1,71 @@
+<div class="w-full">
+    <h1 class="text-center mb-6 text-3xl font-bold custom-font custom-color">Tabla de Salud de las Gallinas</h1>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">ID Salud</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">ID Gallina</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Fecha</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Tipo Registro</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Detalle</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Medicamentos</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Dosis</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Fecha Vacuna</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Enfermedad</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Peso</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Temperatura</th>
+          <th scope="col" class="px-6 py-3 text-[#c77900]">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let salud of saludGallinas" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <td class="px-6 py-4">{{ salud.id_SaludGallina }}</td>
+          <td class="px-6 py-4">{{ salud.id_Gallina }}</td>
+          <td class="px-6 py-4">{{ salud.fecha | date: 'dd/MM/yyyy' }}</td>
+          <td class="px-6 py-4">{{ salud.tipo_Registro }}</td>
+          <td class="px-6 py-4">{{ salud.detalle }}</td>
+          <td class="px-6 py-4">{{ salud.medicamentos }}</td>
+          <td class="px-6 py-4">{{ salud.dosis }}</td>
+          <td class="px-6 py-4">{{ salud.fecha_vacuna | date: 'dd/MM/yyyy' }}</td>
+          <td class="px-6 py-4">{{ salud.enfermedad }}</td>
+          <td class="px-6 py-4">{{ salud.peso }}</td>
+          <td class="px-6 py-4">{{ salud.temperatura }}</td>
+          <td class="px-6 py-4">
+            <div class="flex space-x-4">
+              <button (click)="editSalud(salud)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Actualizar
+              </button>
+              <button (click)="deleteSalud(salud.id_SaludGallina)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Submenú de Edición flotante -->
+    <div *ngIf="selectedSalud" class="fixed inset-0 flex items-center justify-center z-50">
+      <div class="absolute inset-0 bg-black opacity-50" (click)="cancelEdit()"></div>
+  
+      <div class="relative bg-white rounded-lg shadow-lg p-6 z-50 w-full max-w-lg">
+        <h2 class="text-lg font-bold mb-4">Editar Salud de la Gallina</h2>
+        <form (ngSubmit)="updateSalud()">
+          <div class="mb-4">
+            <label for="id_Gallina" class="block text-sm font-medium text-gray-700">ID Gallina</label>
+            <input name="id_Gallina" type="number" id="id_Gallina" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+          </div>
+          <div class="mb-4">
+            <label for="tipo_registro" class="block text-sm font-medium text-gray-700">Tipo Registro</label>
+            <input  name="tipo_registro" type="text" id="tipo_registro" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+          </div>
+          <!-- Agrega otros campos que desees editar -->
+          <div class="flex justify-end space-x-4">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Guardar</button>
+            <button type="button" (click)="cancelEdit()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -32,7 +32,7 @@ export class GalponService {
 
 
   // Método para eliminar un galpón
-  deleteGalpon(data: { numero_Galpon: number, nuevo_Numero_Galpon: number }): Observable<any> {
+  DeleteGalpon(data: { numero_Galpon: number, nuevo_Numero_Galpon: number }): Observable<any> {
     const url = `http://localhost:20821/Galpones/Eliminar`;
     return this.http.post<any>(url, data); // Cambiado a POST para enviar el cuerpo
   }
