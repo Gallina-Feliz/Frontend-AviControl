@@ -60,22 +60,22 @@ export class TableGalponesComponent implements OnInit {
 
   openDeleteModal(id: number): void {
     this.deleteGalponId = id;
-    this.deleteGalponData.numero_Galpon = id; // Se asigna el ID del galpón a eliminar
+    this.deleteGalponData.numero_Galpon = id;
   }
 
   cancelDelete(): void {
     this.deleteGalponId = null;
     this.deleteGalponData = {
       numero_Galpon: 0,
-      nuevo_Numero_Galpon: 1 // Valor de reset
+      nuevo_Numero_Galpon: 1
     };
   }
 
   deleteGalpon(): void {
     if (this.deleteGalponId !== null) {
+      // Asume que el nuevo número de galpón está configurado correctamente
       this.deleteGalponData.numero_Galpon = this.deleteGalponId;
-      console.log('Datos enviados para eliminación:', this.deleteGalponData);
-  
+      
       Swal.fire({
         title: '¿Estás seguro?',
         text: 'Esta acción no se puede deshacer',
@@ -87,29 +87,20 @@ export class TableGalponesComponent implements OnInit {
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-          console.log('Solicitud confirmada para eliminación');
           this.galponService.deleteGalpon(this.deleteGalponData).subscribe(
-            (response) => {
-              console.log('Respuesta del servidor:', response);
-              if (response && response.success) {
-                Swal.fire('Eliminado', 'El galpón ha sido eliminado con éxito', 'success');
-                this.getGalpones(); // Actualiza la lista de galpones
-                this.cancelDelete(); // Reinicia el formulario de eliminación
-              } else {
-                Swal.fire('Error', 'No se pudo eliminar el galpón', 'error');
-              }
+            () => {
+              Swal.fire('Eliminado', 'El galpón ha sido eliminado con éxito', 'success');
+              this.getGalpones(); // Actualiza la lista después de la eliminación
+              this.cancelDelete(); // Cierra el formulario de eliminación
             },
             (error) => {
-              console.error('Error en la eliminación:', error);
-              Swal.fire('Error', 'Hubo un error al eliminar el galpón', 'error');
+              Swal.fire('Error', 'Error al eliminar el galpón', 'error');
+              console.error('Error al eliminar el galpón', error);
             }
           );
-        } else {
-          console.log('Eliminación cancelada por el usuario');
         }
       });
     }
   }
-  
   
 }
