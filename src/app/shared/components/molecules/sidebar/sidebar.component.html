@@ -148,29 +148,6 @@
                             </li>
                           </ul>
                         </li>
-
-                        <!-- Submenú Bitacora Diaria -->
-                        <li>
-                          <button
-                            type="button"
-                            class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-12 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                            (click)="toggleBitacora()"
-                            aria-controls="bitacora-dropdown"
-                            data-collapse-toggle="bitacora-dropdown">
-                            <span class="flex-1 text-left rtl:text-right whitespace-nowrap">Bitacora Diaria</span>
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                            </svg>
-                          </button>
-                          <ul id="bitacora-dropdown" [ngClass]="{'hidden': !isBitacoraVisible}" class="py-2 space-y-2">
-                            <li>
-                              <a href="http://localhost:4200/formularioBitacora" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-16 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Formulario Bitacora</a>
-                            </li>
-                            <li>
-                              <a href="http://localhost:4200/tablaBitacora" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-16 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Tabla Bitacora</a>
-                            </li>
-                          </ul>
-                        </li>
                       </ul>
                   </li>
               </ul>

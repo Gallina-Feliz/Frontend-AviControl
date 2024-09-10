@@ -32,10 +32,18 @@ export class GalponService {
 
 
   // Método para eliminar un galpón
-  DeleteGalpon(data: { numero_Galpon: number, nuevo_Numero_Galpon: number }): Observable<any> {
+  deleteGalpon(data: { numero_Galpon: number, nuevo_Numero_Galpon: number }): Observable<any> {
     const url = `http://localhost:20821/Galpones/Eliminar`;
-    return this.http.post<any>(url, data); // Cambiado a POST para enviar el cuerpo
+    console.log('Realizando solicitud HTTP POST a', url, 'con datos:', data);
+    return this.http.post<any>(url, data).pipe(
+      catchError((error) => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(() => new Error('Error en la solicitud de eliminación'));
+      })
+    );
   }
+  
+  
 
   // Manejo de errores
   private handleError(error: HttpErrorResponse) {
