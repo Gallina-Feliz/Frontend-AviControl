@@ -56,7 +56,9 @@ export class FormAlimentacionComponent {
         Swal.fire({
           title: 'Error',
           text: 'No se pudo registrar la alimentación',
-          icon: 'error',
+          imageUrl : "../../../../../assets/icons/2.png",
+          imageWidth: 130,  // Ajusta el ancho de la imagen
+          imageHeight: 150, 
           confirmButtonText: 'OK',
           confirmButtonColor: '#F1AB0F'
         });

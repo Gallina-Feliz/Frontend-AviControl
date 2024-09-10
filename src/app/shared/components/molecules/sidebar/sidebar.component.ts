@@ -108,7 +108,9 @@ export class SidebarComponent {
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Quieres cerrar sesión?',
-      icon: 'warning',
+      imageUrl : "../../../../../assets/icons/ad.png",
+      imageWidth: 130,  // Ajusta el ancho de la imagen
+      imageHeight: 150,
       showCancelButton: true,
       confirmButtonColor: '#F1AB0F',
       cancelButtonColor: '#d33',

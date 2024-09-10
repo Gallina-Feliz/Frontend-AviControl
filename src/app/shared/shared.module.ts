@@ -35,6 +35,7 @@ import { TablaSaludGComponent } from './components/molecules/tabla-salud-g/tabla
 import { TablaSaludGallinasComponent } from './components/templates/tabla-salud-gallinas/tabla-salud-gallinas.component';
 import { FormAlimentacionComponent } from './components/molecules/form-alimentacion/form-alimentacion.component';
 import { AlimetacionPageTComponent } from './components/templates/alimetacion-page-t/alimetacion-page-t.component';
+import { RegistrerComponent } from './components/molecules/registrer/registrer.component';
 
 
 
@@ -68,7 +69,8 @@ import { AlimetacionPageTComponent } from './components/templates/alimetacion-pa
     TablaSaludGComponent,
     TablaSaludGallinasComponent,
     FormAlimentacionComponent,
-    AlimetacionPageTComponent
+    AlimetacionPageTComponent,
+    RegistrerComponent
   ],
   imports: [
     FormsModule,

@@ -27,7 +27,9 @@ export class TablaSaludGComponent implements OnInit {
         Swal.fire({
           title: 'Error',
           text: 'Error al cargar los datos de salud',
-          icon: 'error',
+          imageUrl : "../../../../../assets/icons/2.png",
+          imageWidth: 130,  // Ajusta el ancho de la imagen
+          imageHeight: 150, 
           confirmButtonText: 'Aceptar'
         });
         console.error('Error al cargar datos de salud:', error);
@@ -63,7 +65,9 @@ export class TablaSaludGComponent implements OnInit {
           Swal.fire({
             title: 'Error',
             text: 'Error al actualizar los datos de salud',
-            icon: 'error',
+            imageUrl : "../../../../../assets/icons/2.png",
+            imageWidth: 130,  // Ajusta el ancho de la imagen
+            imageHeight: 150, 
             confirmButtonText: 'Aceptar'
           });
           console.error('Error al actualizar datos de salud:', error);
@@ -99,7 +103,9 @@ export class TablaSaludGComponent implements OnInit {
             Swal.fire({
               title: 'Error',
               text: 'Error al eliminar los datos de salud',
-              icon: 'error',
+              imageUrl : "../../../../../assets/icons/2.png",
+              imageWidth: 130,  // Ajusta el ancho de la imagen
+              imageHeight: 150, 
               confirmButtonText: 'Aceptar'
             });
             console.error('Error al eliminar datos de salud:', error);

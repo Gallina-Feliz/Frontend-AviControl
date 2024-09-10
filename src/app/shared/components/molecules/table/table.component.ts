@@ -26,7 +26,9 @@ export class TableComponent implements OnInit {
         Swal.fire({
           title: 'Error',
           text: 'Error al cargar las gallinas',
-          icon: 'error',
+          imageUrl : "../../../../../assets/icons/2.png",
+          imageWidth: 130,  // Ajusta el ancho de la imagen
+          imageHeight: 150, 
           confirmButtonText: 'Ok'
         });
         console.error('Error al cargar datos', error); // Loguear el error para depuración
@@ -66,7 +68,9 @@ export class TableComponent implements OnInit {
           Swal.fire({
             title: 'Error',
             text: `Error al actualizar la gallina: ${error.message}`,
-            icon: 'error',
+            imageUrl : "../../../../../assets/icons/2.png",
+            imageWidth: 130,  // Ajusta el ancho de la imagen
+            imageHeight: 150, 
             confirmButtonText: 'Aceptar'
           });
           console.error('Error al actualizar la gallina', error);
