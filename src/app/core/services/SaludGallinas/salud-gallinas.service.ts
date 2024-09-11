@@ -58,10 +58,12 @@ export class SaludGallinasService {
   }
 
   // Método para eliminar un registro de salud de gallina
-  eliminarSaludGallina(id_Gallina: number): Observable<any> {
-    const url = `${this.baseApiUrl}/salud/${id_Gallina}`;
+  eliminarSaludGallina(id_SaludGallina: number): Observable<any> {
+    const url = `${this.baseApiUrl}/Eliminar/${id_SaludGallina}`;
     return this.http.delete<any>(url).pipe(
       catchError(this.handleError)
     );
   }
+  
+  
 }

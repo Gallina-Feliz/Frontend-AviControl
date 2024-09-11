@@ -8,7 +8,7 @@
               <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
            </svg>
         </button>
-        <a href="http://localhost:4200/Home" class="flex ms-2 md:me-24">
+        <a routerLink="/Home" class="flex ms-2 md:me-24">
           <img src="../../../../../assets/images/Logo.jpg" class="h-8 me-3" alt="FlowBite Logo" />
           <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">AviControl</span>
         </a>
@@ -83,8 +83,7 @@
               </button>
               <ul id="main-dropdown" [ngClass]="{'hidden': !isMainDropdownVisible}" class="py-2 space-y-2">
                   <li>
-                      <a href="http://localhost:4200/TablaGallinas" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-8 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Listado de las gallinas</a>
-                  </li>
+                    <a href="http://localhost:4200/TablaGallinas"  class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-8 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Listado de las gallinas</a></li>
                   <li>
                       <!-- Menu desplegable anidado -->
                       <button
@@ -214,11 +213,15 @@
                             <a href="http://localhost:4200/FormularioGalpon" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-16 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Registro de los galpones</a>
                           </li>
                           <li>
-                            <a href="http://localhost:4200/FormularioGalpon" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-16 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Alimentacion</a>
+                            <a href="http://localhost:4200/FormularioAlimetacion" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-16 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Alimentacion</a>
+                          </li>
+                          <li>
+                            <a href="http://localhost:4200/FormularioAlimetacion" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-16 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Historial Alimentacion</a>
                           </li>
                           <li>
                             <a href="http://localhost:4200/FormularioGalpon" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-16 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Conteo de los Huevos</a>
                           </li>
+                          
                         </ul>
                       </li>
                     </ul>
@@ -227,4 +230,6 @@
           </li>
       </ul>
   </div>
+  
 </aside>
+

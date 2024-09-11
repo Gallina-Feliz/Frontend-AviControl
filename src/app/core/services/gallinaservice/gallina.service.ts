@@ -37,7 +37,7 @@ registrarGallina(gallinaData: any) {
 
 
   // Método para eliminar una gallina
-  deleteGallina(codigo_Gallina: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/Eliminar/${codigo_Gallina}`);
+  deleteGallina(codigo_Gallinas: number): Observable<any> {
+    return this.http.delete<any>(`http://localhost:20821/Eliminar/${codigo_Gallinas}`);
   }
 }

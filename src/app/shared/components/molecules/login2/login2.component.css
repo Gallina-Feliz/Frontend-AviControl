@@ -114,8 +114,9 @@ body{
   height: 88vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap :7rem;
-  padding: 0 2rem;
+  grid-gap :15rem;
+  padding: 0 20rem;
+  padding-bottom: 5rem;
   margin-left: 10rem;
 }
 

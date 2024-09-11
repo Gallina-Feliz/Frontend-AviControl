@@ -28,6 +28,7 @@ Swal.mixin({
     AppRoutingModule,
     FormsModule,
     SaludGallinasRoutingModule,
+    
 
 
 
