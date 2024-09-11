@@ -1,4 +1,4 @@
-.hero-container {
+s.hero-container {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -313,4 +313,9 @@ a:hover{
   .login-content{
     justify-content: center;
   }
+}
+.title {
+  font-size: 1.5rem; /* Puedes ajustar el tamaño según lo necesites */
+  font-weight: bold; /* Opcional: para hacer la letra más gruesa */
+  margin: .8rem 0;
 }

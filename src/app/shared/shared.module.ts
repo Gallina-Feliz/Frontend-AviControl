@@ -103,7 +103,8 @@ import { RegistrerComponent } from './components/molecules/registrer/registrer.c
     FormularioSaludGallinasComponent,
     SaludGallinaPageTComponent,
     TablaSaludGComponent,
-    FormAlimentacionComponent
+    FormAlimentacionComponent,
+    RegistrerComponent
 
   ]
 })
