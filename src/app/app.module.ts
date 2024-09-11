@@ -11,7 +11,7 @@ import { SaludGallinasRoutingModule } from './features/salud-gallinas/salud-gall
 import Swal from 'sweetalert2';
 
 Swal.mixin({
-  confirmButtonColor: '#F1AB0F'
+  confirmButtonColor: '#14532D'
 });
 
 @NgModule({

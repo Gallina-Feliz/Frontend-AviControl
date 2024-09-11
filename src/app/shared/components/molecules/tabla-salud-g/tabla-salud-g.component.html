@@ -30,7 +30,7 @@
           <td class="px-6 py-4">{{ salud.temperatura }}</td>
           <td class="px-6 py-4">
             <div class="flex space-x-4">
-              <button (click)="editSalud(salud)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              <button (click)="editSalud(salud)" class="bg-secondary hover:bg-tercario text-white font-bold py-2 px-4 rounded">
                 Actualizar
               </button>
               <button (click)="deleteSalud(salud.id_SaludGallina)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
@@ -59,7 +59,7 @@
           </div>
           <!-- Agrega otros campos que desees editar -->
           <div class="flex justify-end space-x-4">
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Guardar</button>
+            <button type="submit" class="bg-secondary hover:bg-tercario text-white font-bold py-2 px-4 rounded">Guardar</button>
             <button type="button" (click)="cancelEdit()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancelar</button>
           </div>
         </form>

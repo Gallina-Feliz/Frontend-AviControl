@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         primary: '#F1AB0F ',  // Azul fuerte, como el del botón de éxito
-        secondary: '#9333EA',  // Un morado
+        secondary: '#14532D', 
+        tercario: '#14511D', // Un verde
         accent: '#EAB308',  // Amarillo dorado
         danger: '#DC2626',  // Rojo
         success: '#16A34A',  // Verde
