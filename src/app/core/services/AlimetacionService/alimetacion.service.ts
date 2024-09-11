@@ -18,28 +18,31 @@ export class AlimentacionService {
   // Método para actualizar una alimentación
   updateAlimentacion(alimentacion: any): Observable<any> {
     const body = {
-      Codigo_Alimentacion: alimentacion.Codigo_Alimentacion,
-      Codigo_Gallina: alimentacion.Codigo_Gallina,
-      Fecha_Alimentacion: alimentacion.Fecha_Alimentacion,
-      Cantidad: alimentacion.Cantidad,
-      Tipo_Alimento: alimentacion.Tipo_Alimento
+      id_Alimentacion: alimentacion.id_Alimentacion,
+      cantidadAlimento: alimentacion.cantidadAlimento,
+      tipoAlimento: alimentacion.tipoAlimento,
+      fecha: alimentacion.fecha,
+      numero_Galpon: alimentacion.numero_Galpon,
+      tipo_Galpon: alimentacion.tipo_Galpon
     };
 
-    return this.http.put<any>(`${this.apiUrl}/Modificar`, body);
+    return this.http.put<any>(`${this.apiUrl}/Alimentacion/Actualizar`, body);
   }
 
-  // Método para listar alimentaciones
-  listarAlimentaciones() {
-    return this.http.get(`${this.apiUrl}/Listar`);
+  // Método para listar alimentaciones (mismo que getAlimentaciones, puedes dejar solo uno)
+  listarAlimentaciones(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/Listar`);
+  }
+  
+  // Método para eliminar una alimentación por ID
+  eliminarAlimentacion(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/EliminarAlimentacion/${id}`);
   }
 
   // Método para registrar una nueva alimentación
-  registrarAlimentacion(alimentacionData: any) {
-    return this.http.post(`${this.apiUrl}/Insertar`, alimentacionData);
+  registrarAlimentacion(alimentacionData: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/Insertar`, alimentacionData);
   }
 
-  // Método para eliminar una alimentación
-  deleteAlimentacion(codigo_Alimentacion: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/Eliminar/${codigo_Alimentacion}`);
-  }
+  // Método duplicado eliminado (deleteAlimentacion)
 }

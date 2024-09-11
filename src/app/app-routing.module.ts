@@ -19,6 +19,7 @@ import { EstadisticaGallinaTComponent } from './shared/components/templates/esta
 import { SaludGallinaPageTComponent } from './shared/components/templates/salud-gallina-page-t/salud-gallina-page-t.component';
 import { TablaSaludGallinasComponent } from './shared/components/templates/tabla-salud-gallinas/tabla-salud-gallinas.component';
 import { AlimetacionPageTComponent } from './shared/components/templates/alimetacion-page-t/alimetacion-page-t.component';
+import { HistorialAlimentacionTComponent } from './shared/components/templates/historial-alimentacion-t/historial-alimentacion-t.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'FormularioSaludGallinas', component: SaludGallinaPageTComponent, canActivate: [AuthGuard] },
   { path: 'TablaSaludGallinas', component: TablaSaludGallinasComponent, canActivate: [AuthGuard] },
   { path: 'FormularioAlimetacion', component: AlimetacionPageTComponent, canActivate: [AuthGuard] },
+  { path: 'HistorialAlimentacion', component: HistorialAlimentacionTComponent, canActivate: [AuthGuard] },
+
 
 
 

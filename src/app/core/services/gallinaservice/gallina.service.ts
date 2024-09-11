@@ -40,4 +40,9 @@ registrarGallina(gallinaData: any) {
   deleteGallina(codigo_Gallinas: number): Observable<any> {
     return this.http.delete<any>(`http://localhost:20821/Eliminar/${codigo_Gallinas}`);
   }
+
+  getRaza(): Observable<any> {
+    return this.http.get<any>(`http://localhost:20821/api/Raza/Listar`);
+  }
+
 }
