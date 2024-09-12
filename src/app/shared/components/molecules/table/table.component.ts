@@ -83,7 +83,7 @@ export class TableComponent implements OnInit {
   
   
 
-  deleteGallina(codigoGallina: number): void {
+  deleteGallina(codigoGallinas: number): void {
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Esta acción no se puede deshacer',
@@ -95,7 +95,7 @@ export class TableComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.gallinaService.deleteGallina(codigoGallina).subscribe(
+        this.gallinaService.deleteGallina(codigoGallinas).subscribe(
           () => {
             Swal.fire({
               title: 'Eliminado',
