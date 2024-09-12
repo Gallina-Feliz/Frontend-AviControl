@@ -37,6 +37,7 @@ import { FormAlimentacionComponent } from './components/molecules/form-alimentac
 import { AlimetacionPageTComponent } from './components/templates/alimetacion-page-t/alimetacion-page-t.component';
 import { HistorialAlimentacionComponent } from './components/molecules/historial-alimentacion/historial-alimentacion.component';
 import { HistorialAlimentacionTComponent } from './components/templates/historial-alimentacion-t/historial-alimentacion-t.component';
+import { RazaComponent } from './components/molecules/raza/raza.component';
 
 
 
@@ -72,7 +73,8 @@ import { HistorialAlimentacionTComponent } from './components/templates/historia
     FormAlimentacionComponent,
     AlimetacionPageTComponent,
     HistorialAlimentacionComponent,
-    HistorialAlimentacionTComponent
+    HistorialAlimentacionTComponent,
+    RazaComponent
   ],
   imports: [
     FormsModule,

@@ -1,32 +1,32 @@
 <div class="flex-1 flex items-center justify-center min-h-screen p-4 transition-all duration-300">
-  <form (ngSubmit)="registrarGallina()" class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
-    <h1 class="text-center mb-6 text-3xl font-bold custom-font custom-color">Formulario de las gallinas</h1>
+  <form (ngSubmit)="registrarGallina()" class="max-w-2xl w-full bg-white p-12 rounded-lg shadow-lg">
+    <h1 class="text-center mb-8 text-4xl font-bold custom-font custom-color">Formulario de las gallinas</h1>
 
     <!-- Campo para el código de gallina -->
-    <div class="relative z-0 w-full mb-5 group">
-      <input [(ngModel)]="gallina.codigo_Gallinas" name="codigo_Gallinas" type="number" id="floating_codigo_gallina" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
-      <label for="floating_codigo_gallina" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Código Gallina</label>
+    <div class="relative z-0 w-full mb-8 group">
+      <input [(ngModel)]="gallina.codigo_Gallinas" name="codigo_Gallinas" type="number" id="floating_codigo_gallina" class="block py-4 px-2 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
+      <label for="floating_codigo_gallina" class="peer-focus:font-medium absolute text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Código Gallina</label>
     </div>
 
     <!-- Campo para la raza (ID) -->
-    <div class="relative z-0 w-full mb-5 group">
-      <input [(ngModel)]="gallina.id_Raza" name="id_Raza" type="number" id="floating_id_raza" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
-      <label for="floating_id_raza" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Raza (ID)</label>
+    <div class="relative z-0 w-full mb-8 group">
+      <input [(ngModel)]="gallina.id_Raza" name="id_Raza" type="number" id="floating_id_raza" class="block py-4 px-2 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
+      <label for="floating_id_raza" class="peer-focus:font-medium absolute text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Raza (ID)</label>
     </div>
 
     <!-- Campo para el número del galpón -->
-    <div class="relative z-0 w-full mb-5 group">
-      <input [(ngModel)]="gallina.numero_Galpon" name="numero_Galpon" type="number" id="floating_numero_galpon" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
-      <label for="floating_numero_galpon" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Número del Galpón</label>
+    <div class="relative z-0 w-full mb-8 group">
+      <input [(ngModel)]="gallina.numero_Galpon" name="numero_Galpon" type="number" id="floating_numero_galpon" class="block py-4 px-2 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
+      <label for="floating_numero_galpon" class="peer-focus:font-medium absolute text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Número del Galpón</label>
     </div>
 
     <!-- Campo para la fecha de nacimiento -->
-    <div class="relative z-0 w-full mb-5 group">
-      <input [(ngModel)]="gallina.fecha_Nacimiento" name="fecha_Nacimiento" type="date" id="floating_fecha_nacimiento" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
-      <label for="floating_fecha_nacimiento" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Fecha de Nacimiento</label>
+    <div class="relative z-0 w-full mb-8 group">
+      <input [(ngModel)]="gallina.fecha_Nacimiento" name="fecha_Nacimiento" type="date" id="floating_fecha_nacimiento" class="block py-4 px-2 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
+      <label for="floating_fecha_nacimiento" class="peer-focus:font-medium absolute text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Fecha de Nacimiento</label>
     </div>
 
     <!-- Botón de envío -->
-    <button type="submit" class="w-full bg-secondary text-white py-2 px-4 rounded-lg hover:bg-tercario transition duration-300">Registrar Gallina</button>
+    <button type="submit" class="w-full bg-secondary text-white py-4 px-6 text-lg rounded-lg hover:bg-tercario transition duration-300">Registrar Gallina</button>
   </form>
 </div>

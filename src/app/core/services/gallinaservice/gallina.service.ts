@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,9 +32,15 @@ listarGallinas() {
   return this.http.get(`${this.apiUrl}/Listar`);
 }
 
-registrarGallina(gallinaData: any) {
-  return this.http.post(`${this.apiUrl}/Crear`, gallinaData);
+registrarGallina(gallinaData: any): Observable<any> {
+  return this.http.post(`${this.apiUrl}/Crear`, {
+    Codigo_Gallinas: gallinaData.codigo_Gallinas,
+    Id_Raza: gallinaData.id_Raza,
+    Fecha_Nacimiento: gallinaData.fecha_Nacimiento,
+    Numero_Galpon: gallinaData.numero_Galpon
+  });
 }
+
 
 
   // Método para eliminar una gallina
@@ -41,8 +48,5 @@ registrarGallina(gallinaData: any) {
     return this.http.delete<any>(`http://localhost:20821/Eliminar/${codigo_Gallinas}`);
   }
 
-  getRaza(): Observable<any> {
-    return this.http.get<any>(`http://localhost:20821/api/Raza/Listar`);
-  }
-
+  
 }
