@@ -114,7 +114,7 @@
     height: 88vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap :7rem;
+    grid-gap :30rem;
     padding: 0 2rem;
     margin-left: 10rem;
   }

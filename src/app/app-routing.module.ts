@@ -19,10 +19,12 @@ import { EstadisticaGallinaTComponent } from './shared/components/templates/esta
 import { SaludGallinaPageTComponent } from './shared/components/templates/salud-gallina-page-t/salud-gallina-page-t.component';
 import { TablaSaludGallinasComponent } from './shared/components/templates/tabla-salud-gallinas/tabla-salud-gallinas.component';
 import { AlimetacionPageTComponent } from './shared/components/templates/alimetacion-page-t/alimetacion-page-t.component';
+import { RegistrerComponent } from './shared/components/molecules/registrer/registrer.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginPageTComponent },           // De ambos códigos      // Del primer bloque
+  { path: 'login', component: LoginPageTComponent },  
+  { path: 'register', component: RegistrerComponent },           // De ambos códigos      // Del primer bloque
   { path: 'Home', component: HomePageTComponent, canActivate: [AuthGuard] },
   { path: 'FormularioGallinas', component: FormGallinaTComponent, canActivate: [AuthGuard] },
   { path: 'FormularioGalpon', component: FormGalponTComponent, canActivate: [AuthGuard] },
