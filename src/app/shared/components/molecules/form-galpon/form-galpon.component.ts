@@ -22,7 +22,9 @@ export class FormGalponComponent {
     // Validar el campo numero_galpon
     if (this.galpones.numero_galpon < 0 || this.galpones.numero_galpon > 10) {
       Swal.fire({
-        icon: 'error',
+        imageUrl : "../../../../../assets/icons/2.png",
+        imageWidth: 130,  // Ajusta el ancho de la imagen
+        imageHeight: 150, 
         title: 'Error en los datos',
         text: 'El número del galpón debe estar entre 0 y 10.',
         confirmButtonColor: '#d33'

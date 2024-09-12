@@ -38,6 +38,8 @@ import { AlimetacionPageTComponent } from './components/templates/alimetacion-pa
 import { HistorialAlimentacionComponent } from './components/molecules/historial-alimentacion/historial-alimentacion.component';
 import { HistorialAlimentacionTComponent } from './components/templates/historial-alimentacion-t/historial-alimentacion-t.component';
 import { RazaComponent } from './components/molecules/raza/raza.component';
+import { RegistrerComponent } from './components/molecules/registrer/registrer.component';
+
 
 
 
@@ -74,7 +76,9 @@ import { RazaComponent } from './components/molecules/raza/raza.component';
     AlimetacionPageTComponent,
     HistorialAlimentacionComponent,
     HistorialAlimentacionTComponent,
-    RazaComponent
+    RazaComponent,
+    RegistrerComponent
+
   ],
   imports: [
     FormsModule,
@@ -107,7 +111,8 @@ import { RazaComponent } from './components/molecules/raza/raza.component';
     FormularioSaludGallinasComponent,
     SaludGallinaPageTComponent,
     TablaSaludGComponent,
-    FormAlimentacionComponent
+    FormAlimentacionComponent,
+    RegistrerComponent
 
   ]
 })

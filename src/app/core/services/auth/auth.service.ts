@@ -90,12 +90,6 @@ export class AuthService {
       }
     }
 
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: errorMessage
-    });
-
     return throwError(() => new Error(errorMessage));
   }
 }

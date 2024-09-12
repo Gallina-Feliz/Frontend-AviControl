@@ -4,14 +4,16 @@ import Swal from 'sweetalert2';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 
 @Component({
-  selector: 'app-login2',
-  templateUrl: './login2.component.html',
-  styleUrls: ['./login2.component.css']
+  selector: 'app-registrer',
+  templateUrl: './registrer.component.html',
+  styleUrl: './registrer.component.css'
 })
-export class Login2Component implements OnInit {
+export class RegistrerComponent implements OnInit {
   loginModel = {
+    Username: '',
     Email: '',
-    Password: ''
+    Password: '',
+    ConfirmPassword: ''
   };
 
   constructor(
@@ -95,7 +97,7 @@ export class Login2Component implements OnInit {
               imageWidth: 130,  // Ajusta el ancho de la imagen
               imageHeight: 150, 
               title: 'Error',
-              text:'Ocurrió un error durante el inicio de sesión',
+              text:'Ocurrió un error durante la creación del usuario',
               confirmButtonColor: '#F1AB0F',
               confirmButtonText: 'Aceptar'
             });

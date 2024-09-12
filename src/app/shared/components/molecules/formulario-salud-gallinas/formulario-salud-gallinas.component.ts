@@ -89,7 +89,9 @@ export class FormularioSaludGallinasComponent {
         this.limpiarFormulario();
       }, error => {
         Swal.fire({
-          icon: 'error',
+          imageUrl : "../../../../../assets/icons/2.png",
+          imageWidth: 130,  // Ajusta el ancho de la imagen
+          imageHeight: 150, 
           title: 'Error al Registrar',
           text: 'Hubo un problema al intentar registrar los datos de salud. ¿Deseas intentar nuevamente?',
           showCancelButton: true,
