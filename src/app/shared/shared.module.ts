@@ -39,6 +39,8 @@ import { HistorialAlimentacionComponent } from './components/molecules/historial
 import { HistorialAlimentacionTComponent } from './components/templates/historial-alimentacion-t/historial-alimentacion-t.component';
 import { RazaComponent } from './components/molecules/raza/raza.component';
 import { RegistrerComponent } from './components/molecules/registrer/registrer.component';
+import { FormConteoComponent } from './components/molecules/form-conteo/form-conteo.component';
+import { HuevosConteoTComponent } from './components/templates/huevos-conteo-t/huevos-conteo-t.component';
 
 
 
@@ -77,7 +79,9 @@ import { RegistrerComponent } from './components/molecules/registrer/registrer.c
     HistorialAlimentacionComponent,
     HistorialAlimentacionTComponent,
     RazaComponent,
-    RegistrerComponent
+    RegistrerComponent,
+    FormConteoComponent,
+    HuevosConteoTComponent
 
   ],
   imports: [

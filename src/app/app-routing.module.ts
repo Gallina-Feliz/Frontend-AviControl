@@ -21,6 +21,7 @@ import { TablaSaludGallinasComponent } from './shared/components/templates/tabla
 import { AlimetacionPageTComponent } from './shared/components/templates/alimetacion-page-t/alimetacion-page-t.component';
 import { HistorialAlimentacionTComponent } from './shared/components/templates/historial-alimentacion-t/historial-alimentacion-t.component';
 import { RegistrerComponent } from './shared/components/molecules/registrer/registrer.component';
+import { HuevosConteoTComponent } from './shared/components/templates/huevos-conteo-t/huevos-conteo-t.component';
 
 
 
@@ -37,6 +38,8 @@ const routes: Routes = [
   { path: 'TablaSaludGallinas', component: TablaSaludGallinasComponent, canActivate: [AuthGuard] },
   { path: 'FormularioAlimetacion', component: AlimetacionPageTComponent, canActivate: [AuthGuard] },
   { path: 'HistorialAlimentacion', component: HistorialAlimentacionTComponent, canActivate: [AuthGuard] },
+  { path: 'FormularioConteo', component: HuevosConteoTComponent },
+
 
 
 

@@ -1,0 +1,27 @@
+<div class="flex-1 flex items-center justify-center min-h-screen p-4 transition-all duration-300">
+    <form (ngSubmit)="registrarHuevo()" class="max-w-2xl w-full bg-white p-12 rounded-lg shadow-lg">
+      <h1 class="text-center mb-8 text-4xl font-bold custom-font custom-color">Registro de Conteo de Huevos</h1>
+  
+      <!-- Campo para la cantidad -->
+      <div class="relative z-0 w-full mb-8 group">
+        <input [(ngModel)]="huevo.Cantidad" name="Cantidad" type="number" id="floating_cantidad" class="block py-4 px-2 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
+        <label for="floating_cantidad" class="peer-focus:font-medium absolute text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Cantidad de Huevos</label>
+      </div>
+  
+      <!-- Campo para el tipo de huevo (ID) -->
+      <div class="relative z-0 w-full mb-8 group">
+        <input [(ngModel)]="huevo.Id_TipoHuevo" name="Id_TipoHuevo" type="number" id="floating_id_tipo_huevo" class="block py-4 px-2 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
+        <label for="floating_id_tipo_huevo" class="peer-focus:font-medium absolute text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Tipo de Huevo (ID)</label>
+      </div>
+  
+      <!-- Campo para el número del galpón -->
+      <div class="relative z-0 w-full mb-8 group">
+        <input [(ngModel)]="huevo.Numero_Galpon" name="Numero_Galpon" type="number" id="floating_numero_galpon" class="block py-4 px-2 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary" placeholder=" " required />
+        <label for="floating_numero_galpon" class="peer-focus:font-medium absolute text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3">Número del Galpón</label>
+      </div>
+  
+      <!-- Botón de envío -->
+      <button type="submit" class="w-full bg-secondary text-white py-4 px-6 text-lg rounded-lg hover:bg-tercario transition duration-300">Registrar Huevos</button>
+    </form>
+  </div>
+  
