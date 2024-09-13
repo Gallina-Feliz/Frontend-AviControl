@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 export class FormConteoComponent {
   huevo = {
     Cantidad: 0,
-    Id_TipoHuevo: 0,
+    id_TipoHuevo: 0,
     Numero_Galpon: 0
   };
 
@@ -18,7 +18,7 @@ export class FormConteoComponent {
 
   registrarHuevo() {
     // Validar que los campos no sean menores a 0
-    if (this.huevo.Cantidad <= 0 || this.huevo.Id_TipoHuevo <= 0 || this.huevo.Numero_Galpon <= 0) {
+    if (this.huevo.Cantidad <= 0 || this.huevo.id_TipoHuevo <= 0 || this.huevo.Numero_Galpon <= 0) {
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -28,7 +28,7 @@ export class FormConteoComponent {
     }
 
     // Validar que los campos no estén vacíos
-    if (!this.huevo.Cantidad || !this.huevo.Id_TipoHuevo || !this.huevo.Numero_Galpon) {
+    if (!this.huevo.Cantidad || !this.huevo.id_TipoHuevo || !this.huevo.Numero_Galpon) {
       Swal.fire({
         icon: 'error',
         title: 'Error',

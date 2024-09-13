@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlimentacionService } from '../../../../core/services/AlimetacionService/alimetacion.service'; // Asegúrate de que la ruta es correcta
+import { AlimentacionService } from '../../../../core/services/AlimetacionService/alimetacion.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -31,7 +31,7 @@ export class HistorialAlimentacionComponent implements OnInit {
 
   // Seleccionar una alimentación para editar
   editAlimentacion(alimentacion: any): void {
-    this.selectedAlimentacion = { ...alimentacion };
+    this.selectedAlimentacion = { ...alimentacion }; // Copia el objeto seleccionado
   }
 
   // Cancelar la edición
@@ -40,19 +40,24 @@ export class HistorialAlimentacionComponent implements OnInit {
   }
 
   // Actualizar una alimentación
-  updateAlimentacion(): void {
-    this.alimentacionService.updateAlimentacion(this.selectedAlimentacion).subscribe(
-      (response) => {
-        Swal.fire('Actualizado', 'Alimentación actualizada con éxito', 'success');
-        this.getAlimentaciones(); // Recargar la lista después de la actualización
-        this.cancelEdit(); // Cerrar el modal de edición
-      },
-      (error) => {
-        console.error('Error al actualizar la alimentación', error);
-        Swal.fire('Error', 'No se pudo actualizar la alimentación', 'error');
-      }
-    );
-  }
+ // Actualizar una alimentación
+updateAlimentacion(): void {
+  // Asignar automáticamente la fecha actual antes de actualizar
+  this.selectedAlimentacion.fecha = new Date().toISOString();
+
+  this.alimentacionService.updateAlimentacion(this.selectedAlimentacion).subscribe(
+    (response) => {
+      Swal.fire('Actualizado', 'Alimentación actualizada con éxito', 'success');
+      this.getAlimentaciones(); // Recargar la lista después de la actualización
+      this.cancelEdit(); // Cerrar el modal de edición
+    },
+    (error) => {
+      console.error('Error al actualizar la alimentación', error);
+      Swal.fire('Error', 'No se pudo actualizar la alimentación', 'error');
+    }
+  );
+}
+
 
   // Eliminar una alimentación
   deleteAlimentacion(id: number): void {

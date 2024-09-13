@@ -41,7 +41,7 @@ import { RazaComponent } from './components/molecules/raza/raza.component';
 import { RegistrerComponent } from './components/molecules/registrer/registrer.component';
 import { FormConteoComponent } from './components/molecules/form-conteo/form-conteo.component';
 import { HuevosConteoTComponent } from './components/templates/huevos-conteo-t/huevos-conteo-t.component';
-
+import { TipoHuevoTableComponent } from './components/molecules/tipo-huevo-table/tipo-huevo-table.component';
 
 
 
@@ -81,7 +81,8 @@ import { HuevosConteoTComponent } from './components/templates/huevos-conteo-t/h
     RazaComponent,
     RegistrerComponent,
     FormConteoComponent,
-    HuevosConteoTComponent
+    HuevosConteoTComponent,
+    TipoHuevoTableComponent
 
   ],
   imports: [
@@ -115,8 +116,16 @@ import { HuevosConteoTComponent } from './components/templates/huevos-conteo-t/h
     FormularioSaludGallinasComponent,
     SaludGallinaPageTComponent,
     TablaSaludGComponent,
+    TablaSaludGallinasComponent,
     FormAlimentacionComponent,
-    RegistrerComponent
+    AlimetacionPageTComponent,
+    HistorialAlimentacionComponent,
+    HistorialAlimentacionTComponent,
+    RazaComponent,
+    RegistrerComponent,
+    FormConteoComponent,
+    HuevosConteoTComponent,
+    TipoHuevoTableComponent
 
   ]
 })

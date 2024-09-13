@@ -17,16 +17,17 @@ export class AlimentacionService {
 
   // Método para actualizar una alimentación
   updateAlimentacion(alimentacion: any): Observable<any> {
+    // Aquí el id se pasa como parte de la URL
+    const url = `http://localhost:20821/Alimentacion/Alimentacion/Modificar/${alimentacion.id_Alimentacion}`;
+  
     const body = {
-      id_Alimentacion: alimentacion.id_Alimentacion,
       cantidadAlimento: alimentacion.cantidadAlimento,
       tipoAlimento: alimentacion.tipoAlimento,
-      fecha: alimentacion.fecha,
-      numero_Galpon: alimentacion.numero_Galpon,
-      tipo_Galpon: alimentacion.tipo_Galpon
+      numero_Galpon: alimentacion.numero_Galpon
+      // No necesitas incluir la fecha, ya que se maneja automáticamente en el backend
     };
-
-    return this.http.put<any>(`${this.apiUrl}/Alimentacion/Actualizar`, body);
+  
+    return this.http.put(url, body); // Realiza la solicitud PUT
   }
 
   // Método para listar alimentaciones (mismo que getAlimentaciones, puedes dejar solo uno)

@@ -11,50 +11,54 @@ export class LineChartComponent implements OnInit {
   public chart?: Chart;
 
   ngOnInit(): void {
-    // Hypothetical data for registered chickens per month
+    // Datos ficticios para el número de gallinas registradas por mes
     const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+      labels: [
+        'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
+        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+      ],
       datasets: [{
-        label: 'Number of Chickens Registered',
-        data: [150, 230, 180, 220, 300, 250, 320, 400], // Imaginary numbers for chickens
+        label: 'Número de gallinas registradas',
+        data: [50, 70, 60, 80, 90, 75, 85, 95, 51, 80, 70, 65], // Números ficticios para cada mes
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1
       }]
     };
 
-    // Create the chart
-    this.chart = new Chart("chart", {
+    // Crear la gráfica con los datos ficticios
+    this.createChart(data);
+  }
+
+  createChart(data: any): void {
+    // Asegúrate de que el contenedor del gráfico tenga el tamaño adecuado
+    if (this.chart) {
+      this.chart.destroy(); // Destruye el gráfico existente si hay uno
+    }
+
+    // Crear el gráfico
+    this.chart = new Chart('chart', {
       type: 'line' as ChartType,
       data: data,
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        layout: {
-          padding: {
-            left: 4,
-            right: 4,
-            top: 0,
-            bottom: 0,
-          },
-        },
         scales: {
           y: {
-            beginAtZero: true, // Start y-axis from zero
+            beginAtZero: true,
             title: {
               display: true,
-              text: 'Number of Chickens',
+              text: 'Número de Gallinas',
             }
           },
           x: {
             title: {
               display: true,
-              text: 'Months',
+              text: 'Meses',
             }
           }
         }
       }
     });
   }
-
 }

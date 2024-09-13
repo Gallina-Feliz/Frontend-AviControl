@@ -36,10 +36,12 @@ export class SaludGallinasService {
   // Método para registrar salud de gallina
   registrarSaludGallina(saludGallina: any): Observable<any> {
     const url = `${this.baseApiUrl}/Insertar`;
+    console.log('Datos enviados al backend:', saludGallina);  // Para depuración
     return this.http.post<any>(url, saludGallina).pipe(
       catchError(this.handleError)
     );
   }
+  
 
   // Método para obtener los datos de salud de una gallina por ID
   obtenerSaludGallina(id_Gallina: number): Observable<any> {
