@@ -21,12 +21,25 @@ export class FormComponent {
   registrarGallina() {
     // Validaciones
     if (this.gallina.codigo_Gallinas <= 0) {
-      Swal.fire('Advertencia', 'El código de la gallina debe ser mayor que 0', 'warning');
+      Swal.fire({
+        title: 'Advertencia', 
+        text : 'El código de la gallina debe ser mayor que 0', 
+        icon:'warning',
+        confirmButtonColor: '#14532D',
+         confirmButtonText: 'Aceptar'
+        
+      });
       return;
     }
 
     if (this.gallina.id_Raza <= 0) {
-      Swal.fire('Advertencia', 'El ID de la raza debe ser mayor que 0', 'warning');
+      Swal.fire({
+        title:'Advertencia', 
+        text:'Por favor complete todos los campos',
+        icon: 'warning',
+        confirmButtonColor: '#14532D',
+        confirmButtonText: 'Aceptar'
+    });
       return;
     }
 
@@ -34,7 +47,13 @@ export class FormComponent {
     const fechaActual = new Date();
 
     if (fechaNacimiento > fechaActual) {
-      Swal.fire('Advertencia', 'La fecha de nacimiento no puede ser posterior a la fecha actual', 'warning');
+      Swal.fire({
+        title:'Advertencia', 
+        text:'La fecha de nacimiento no puede ser posterior a la fecha actual', 
+        icon:'warning',
+         confirmButtonColor: '#14532D',
+         confirmButtonText: 'Aceptar'
+    });
       return;
     }
 
@@ -48,12 +67,24 @@ export class FormComponent {
 
     this.gallinaService.registrarGallina(gallinaData).subscribe(
       (response) => {
-        Swal.fire('Éxito', 'Gallina registrada correctamente', 'success');
+        Swal.fire({
+          title:'Éxito', 
+          text:'Gallina registrada correctamente', 
+          icon:'success',
+          confirmButtonColor: '#14532D',
+          confirmButtonText: 'Aceptar'
+      });
         // Limpiar el formulario después de registrar
         this.limpiarFormulario();
       },
       (error) => {
-        Swal.fire('Error', 'Hubo un problema al registrar la gallina', 'error');
+        Swal.fire({
+          title:'Error', 
+          text:'Hubo un problema al registrar la gallina', 
+          icon:'error',
+          confirmButtonColor: '#14532D',
+          confirmButtonText: 'Aceptar'
+          });
       }
     );
   }

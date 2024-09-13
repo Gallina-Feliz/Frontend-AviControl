@@ -50,99 +50,114 @@ export class FormularioSaludGallinasComponent {
   }
 
   // Función que valida los campos antes de hacer el registro
-  registrarSaludGallina() {
-    // Validación de peso
-    if (this.saludGallina.peso < 0) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Peso inválido',
-        text: 'El peso no puede ser menor a 0.'
-      });
-      return;
-    }
-
-    // Validación de temperatura
-    if (this.saludGallina.temperatura < 0 || this.saludGallina.temperatura > 100) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Temperatura inválida',
-        text: 'La temperatura debe estar entre 0 y 100 grados centígrados.'
-      });
-      return;
-    }
-
-    // Validación de campos obligatorios según el tipo de registro
-    if (this.saludGallina.tipo_Registro === 'vacuna' && 
-      (!this.saludGallina.medicamentos || !this.saludGallina.dosis || !this.saludGallina.fecha_vacuna)) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Datos incompletos',
-        text: 'Por favor, completa todos los campos relacionados con la vacuna.'
-      });
-      return;
-    } else if (this.saludGallina.tipo_Registro === 'enfermedad' && !this.saludGallina.enfermedad) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Datos incompletos',
-        text: 'Por favor, especifica la enfermedad.'
-      });
-      return;
-    }
-
-    // Mensaje de carga mientras se procesa el registro
+  // Función que valida los campos antes de hacer el registro
+registrarSaludGallina() {
+  // Validación de id_Gallina
+  if (!this.saludGallina.id_Gallina) {
     Swal.fire({
-      title: 'Registrando datos...',
-      text: 'Por favor espera mientras se completan los datos.',
-      allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading();
-      }
+      icon: 'warning',
+      title: 'ID de Gallina requerido',
+      text: 'Por favor, selecciona una gallina.',
+      confirmButtonColor: '#14532D',
+      confirmButtonText: 'Confirmar'
     });
-
-    // Enviar los datos al servicio
-    this.saludGallinasService.registrarSaludGallina(this.saludGallina)
-      .subscribe(response => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Registro Exitoso',
-          html: `
-            <p>Los datos de salud de la gallina han sido registrados correctamente.</p>
-            <ul style="text-align: left;">
-              <li><b>ID Gallina:</b> ${response.id_Gallina}</li>
-              <li><b>Temperatura:</b> ${response.temperatura} °C</li>
-            </ul>`,
-          showConfirmButton: true,
-          confirmButtonText: 'Aceptar',
-          customClass: {
-            confirmButton: 'btn btn-success',
-          },
-          buttonsStyling: false,
-          timer: 5000
-        });
-        this.limpiarFormulario(); // Limpiar el formulario después del registro exitoso
-      }, error => {
-        // Manejo de errores
-        Swal.fire({
-          imageUrl : "../../../../../assets/icons/2.png",
-          imageWidth: 130,  
-          imageHeight: 150, 
-          title: 'Error al Registrar',
-          text: 'Hubo un problema al intentar registrar los datos de salud. ¿Deseas intentar nuevamente?',
-          showCancelButton: true,
-          confirmButtonText: 'Reintentar',
-          cancelButtonText: 'Cancelar',
-          customClass: {
-            confirmButton: 'btn btn-danger',
-            cancelButton: 'btn btn-secondary',
-          },
-          buttonsStyling: false
-        }).then((result) => {
-          if (result.isConfirmed) {
-            this.registrarSaludGallina(); // Reintenta el registro si el usuario confirma
-          }
-        });
-      });
+    return;
   }
+
+  // Validación de detalle
+  if (!this.saludGallina.detalle) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Detalle requerido',
+      text: 'Por favor, proporciona un detalle para el registro.',
+      confirmButtonColor: '#14532D',
+      confirmButtonText: 'Confirmar'
+    });
+    return;
+  }
+
+  // Validación de peso
+  if (this.saludGallina.peso < 0) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Peso inválido',
+      text: 'El peso no puede ser menor a 0.',
+      confirmButtonColor: '#14532D',
+      confirmButtonText: 'Confirmar'
+    });
+    return;
+  }
+
+  // Validación de temperatura
+  if (this.saludGallina.temperatura < 0 || this.saludGallina.temperatura > 100) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Temperatura inválida',
+      text: 'La temperatura debe estar entre 0 y 100 grados centígrados.',
+      confirmButtonColor: '#14532D',
+      confirmButtonText: 'Confirmar'
+    });
+    return;
+  }
+
+  // Validación de campos obligatorios según el tipo de registro
+  if (this.saludGallina.tipo_Registro === 'vacuna' && 
+    (!this.saludGallina.medicamentos || !this.saludGallina.dosis || !this.saludGallina.fecha_vacuna)) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Datos incompletos',
+      text: 'Por favor, completa todos los campos relacionados con la vacuna.',
+      confirmButtonColor: '#14532D',
+      confirmButtonText: 'Confirmar'
+    });
+    return;
+  } else if (this.saludGallina.tipo_Registro === 'enfermedad' && !this.saludGallina.enfermedad) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Datos incompletos',
+      text: 'Por favor, especifica la enfermedad.',
+      confirmButtonColor: '#14532D',
+      confirmButtonText: 'Confirmar'
+    });
+    return;
+  }
+
+  // Mensaje de carga mientras se procesa el registro
+  Swal.fire({
+    title: 'Registrando datos...',
+    text: 'Por favor espera mientras se completan los datos.',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+  // Enviar los datos al servicio
+  this.saludGallinasService.registrarSaludGallina(this.saludGallina)
+    .subscribe(response => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro Exitoso',
+        confirmButtonColor: '#14532D',
+        confirmButtonText: 'Confirmar'
+      });
+      this.limpiarFormulario(); // Limpiar el formulario después del registro exitoso
+    }, error => {
+      // Manejo de errores
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error al Registrar',
+        text: 'Hubo un problema al intentar registrar los datos de salud.',
+        confirmButtonColor: '#14532D',
+        confirmButtonText: 'Confirmar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.registrarSaludGallina(); // Reintenta el registro si el usuario confirma
+        }
+      });
+    });
+}
+
 
   // Función para limpiar el formulario
   limpiarFormulario() {

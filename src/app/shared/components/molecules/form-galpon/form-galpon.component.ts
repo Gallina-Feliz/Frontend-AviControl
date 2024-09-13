@@ -22,12 +22,11 @@ export class FormGalponComponent {
     // Validar el campo numero_galpon
     if (this.galpones.numero_galpon < 0 || this.galpones.numero_galpon > 10) {
       Swal.fire({
-        imageUrl : "../../../../../assets/icons/2.png",
-        imageWidth: 130,  // Ajusta el ancho de la imagen
-        imageHeight: 150, 
+        icon:'warning',
         title: 'Error en los datos',
         text: 'El número del galpón debe estar entre 0 y 10.',
-        confirmButtonColor: '#d33'
+        confirmButtonColor: '#14532D',
+        confirmButtonText: 'Aceptar'
       });
       return; // Detener el registro si la validación falla
     }
@@ -39,7 +38,8 @@ export class FormGalponComponent {
           icon: 'success',
           title: 'Registro exitoso',
           text: 'El galpón ha sido registrado con éxito.',
-          confirmButtonColor: '#F1AB0F'
+          confirmButtonColor: '#14532D',
+          confirmButtonText: 'Aceptar'
         });
 
         // Limpiar el formulario después de registrar exitosamente
@@ -51,7 +51,8 @@ export class FormGalponComponent {
           icon: 'error',
           title: 'Error al registrar',
           text: 'Ocurrió un error al registrar el galpón. Inténtalo nuevamente.',
-          confirmButtonColor: '#d33'
+          confirmButtonColor: '#14532D',
+          confirmButtonText: 'Aceptar'
         });
       }
     );

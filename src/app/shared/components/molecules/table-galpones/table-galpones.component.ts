@@ -28,7 +28,13 @@ export class TableGalponesComponent implements OnInit {
         this.galpones = data;
       },
       (error) => {
-        Swal.fire('Error', 'Error al cargar los galpones', 'error');
+        Swal.fire({
+          title:'Error', 
+          text:'Error al cargar los galpones', 
+          confirmButtonColor: '#14532D',
+          icon:'error',
+          confirmButtonText: 'Aceptar'
+      });
         console.error('Error al cargar datos', error);
       }
     );
@@ -46,12 +52,24 @@ export class TableGalponesComponent implements OnInit {
     if (this.selectedGalpon) {
       this.galponService.updateGalpon(this.selectedGalpon).subscribe(
         () => {
-          Swal.fire('Éxito', 'El galpón ha sido actualizado con éxito', 'success');
+          Swal.fire({
+            title:'Éxito', 
+            text:'El galpón ha sido actualizado con éxito', 
+            confirmButtonColor: '#14532D',
+            icon:'success',
+            confirmButtonText: 'Aceptar'
+        });
           this.getGalpones(); // Actualiza la lista después de la actualización
           this.selectedGalpon = null;
         },
         (error) => {
-          Swal.fire('Error', 'Error al actualizar el galpón', 'error');
+          Swal.fire({
+            title:'Error', 
+            text:'Error al actualizar el galpón', 
+            confirmButtonColor: '#14532D',
+            icon:'error',
+            confirmButtonText:'Aceptar'
+        });
           console.error('Error al actualizar el galpón', error);
         }
       );
@@ -73,7 +91,6 @@ export class TableGalponesComponent implements OnInit {
 
   deleteGalpon(): void {
     if (this.deleteGalponId !== null) {
-      // Asume que el nuevo número de galpón está configurado correctamente
       this.deleteGalponData.numero_Galpon = this.deleteGalponId;
       
       Swal.fire({
@@ -81,20 +98,33 @@ export class TableGalponesComponent implements OnInit {
         text: 'Esta acción no se puede deshacer',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#F1AB0F',
+        confirmButtonColor: '#14532D',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Sí, eliminar',
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
+          // Llamamos al servicio para eliminar el galpón
           this.galponService.deleteGalpon(this.deleteGalponData).subscribe(
             () => {
-              Swal.fire('Eliminado', 'El galpón ha sido eliminado con éxito', 'success');
+              Swal.fire({
+                title: 'Eliminado',
+                text: 'El galpón ha sido eliminado con éxito',
+                confirmButtonColor: '#14532D',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+              });
               this.getGalpones(); // Actualiza la lista después de la eliminación
               this.cancelDelete(); // Cierra el formulario de eliminación
             },
             (error) => {
-              Swal.fire('Error', 'Error al eliminar el galpón', 'error');
+              Swal.fire({
+                title: 'Error',
+                text: 'Error al eliminar el galpón',
+                confirmButtonColor: '#14532D',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+              });
               console.error('Error al eliminar el galpón', error);
             }
           );
@@ -102,5 +132,6 @@ export class TableGalponesComponent implements OnInit {
       });
     }
   }
+  
   
 }

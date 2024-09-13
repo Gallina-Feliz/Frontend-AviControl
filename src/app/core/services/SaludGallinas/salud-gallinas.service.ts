@@ -52,12 +52,11 @@ export class SaludGallinasService {
   }
 
   // Método para actualizar datos de salud de gallina
-  actualizarSaludGallina(id_Gallina: number, saludGallina: any): Observable<any> {
-    const url = `${this.baseApiUrl}/salud/${id_Gallina}`;
-    return this.http.put<any>(url, saludGallina).pipe(
-      catchError(this.handleError)
-    );
+  actualizarSaludGallina(id_SaludGallina: number, datosSalud: any): Observable<any> {
+    const url = 'http://localhost:20821/SaludGallinas/Actualizar'; // Cambia la URL
+    return this.http.put(url, datosSalud);
   }
+  
 
   // Método para eliminar un registro de salud de gallina
   eliminarSaludGallina(id_SaludGallina: number): Observable<any> {

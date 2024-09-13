@@ -29,7 +29,8 @@ export class TableComponent implements OnInit {
           imageUrl : "../../../../../assets/icons/2.png",
           imageWidth: 130,  // Ajusta el ancho de la imagen
           imageHeight: 150, 
-          confirmButtonText: 'Ok'
+          confirmButtonColor: '#14532D',
+          confirmButtonText: 'Volver'
         });
         console.error('Error al cargar datos', error); // Loguear el error para depuración
       }
@@ -58,7 +59,7 @@ export class TableComponent implements OnInit {
             title: 'Éxito',
             text: 'La gallina ha sido actualizada con éxito',
             icon: 'success',
-
+            confirmButtonColor: '#14532D',
             confirmButtonText: 'Aceptar'
           });
           this.loadGallinas();  // Recargar datos después de la actualización
@@ -71,6 +72,7 @@ export class TableComponent implements OnInit {
             imageUrl : "../../../../../assets/icons/2.png",
             imageWidth: 130,  // Ajusta el ancho de la imagen
             imageHeight: 150, 
+            confirmButtonColor: '#14532D',
             confirmButtonText: 'Aceptar'
           });
           console.error('Error al actualizar la gallina', error);
@@ -89,7 +91,7 @@ export class TableComponent implements OnInit {
       text: 'Esta acción no se puede deshacer',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#F1AB0F',
+      confirmButtonColor: '#14532D',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, eliminar',
       cancelButtonText: 'Cancelar'
@@ -101,7 +103,9 @@ export class TableComponent implements OnInit {
               title: 'Eliminado',
               text: 'La gallina ha sido eliminada con éxito',
               icon: 'success',
-              confirmButtonText: 'Ok'
+              confirmButtonColor: '#14532D',
+              confirmButtonText: 'Aceptar'
+
             });
             this.loadGallinas(); // Recargar los datos de gallinas
           },
@@ -110,7 +114,8 @@ export class TableComponent implements OnInit {
               title: 'Error',
               text: 'Error al eliminar la gallina',
               icon: 'error',
-              confirmButtonText: 'Ok'
+              confirmButtonColor: '#14532D',
+              confirmButtonText: 'Volver'
             });
             console.error('Error al eliminar la gallina', error); // Loguear el error para depuración
           }

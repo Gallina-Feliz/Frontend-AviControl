@@ -9,7 +9,7 @@ import { Router } from '@angular/router'; // Importar el Router
 export class InicioComponent implements OnInit, OnDestroy {
   carouselImages: string[] = [
     '../../../../../assets/images/fondoG.jpg',
-    '../../../../../assets/images/',
+    '../../../../../assets/images/carrusel.jpg',
   ];
   activeImageIndex: number = 0;
   carouselInterval: any;

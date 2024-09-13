@@ -43,11 +43,12 @@
 
   <!-- Formulario flotante para actualizar galpón -->
   <div *ngIf="selectedGalpon" class="fixed inset-0 flex items-center justify-center z-50">
-    <!-- Fondo oscuro -->
-    <div class="absolute inset-0 bg-black opacity-50"></div>
+    
+     <!-- Fondo oscuro -->
+     <div class="absolute inset-0 bg-black opacity-50" (click)="cancelEdit()"></div>
     
     <!-- Contenedor del formulario -->
-    <div class="relative bg-setext-secondary rounded-lg shadow-lg p-6 z-50 w-full max-w-lg">
+    <div class="relative bg-white rounded-lg shadow-lg p-6 z-50 w-full max-w-lg">
       <h2 class="text-xl font-bold mb-4">Actualizar Galpón</h2>
       
       <!-- Formulario para actualizar -->
@@ -61,10 +62,10 @@
           <input [(ngModel)]="selectedGalpon.tipo_Galpon" name="tipo_Galpon" type="text" class="mt-1 block w-full border-gray-300 rounded-md" required />
         </div>
         <div class="flex justify-end space-x-4">
-          <button type="submit" class="bg-secondary hover:bg-tercario text-secondary font-bold py-2 px-4 rounded">
+          <button type="submit" class="bg-secondary hover:bg-tercario text-white font-bold py-2 px-4 rounded">
             Guardar Cambios
           </button>
-          <button type="button" (click)="cancelEdit()" class="bg-red-500 hover:bg-red-700 text-secondary font-bold py-2 px-4 rounded">
+          <button type="button" (click)="cancelEdit()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
             Cancelar
           </button>
         </div>
@@ -79,7 +80,7 @@
   <div class="absolute inset-0 bg-black opacity-50"></div>
   
   <!-- Contenedor del formulario -->
-  <div class="relative bg-setext-secondary rounded-lg shadow-lg p-6 z-50 w-full max-w-lg">
+  <div class="relative bg-white rounded-lg shadow-lg p-6 z-50 w-full max-w-lg">
     <h2 class="text-xl font-bold mb-4">Eliminar Galpón</h2>
     
     <!-- Formulario para eliminar -->
@@ -93,10 +94,10 @@
         <input [(ngModel)]="deleteGalponData.nuevo_Numero_Galpon" name="nuevo_Numero_Galpon" type="number" class="mt-1 block w-full border-gray-300 rounded-md" required />
       </div>
       <div class="flex justify-end space-x-4">
-        <button type="submit" class="bg-red-500 hover:bg-red-700 text-secondary font-bold py-2 px-4 rounded">
+        <button type="submit" class="bg-secondary hover:bg-tercario text-white font-bold py-2 px-4 rounded">
           Eliminar
         </button>
-        <button type="button" (click)="cancelDelete()" class="bg-gray-500 hover:bg-gray-700 text-secondary font-bold py-2 px-4 rounded">
+        <button type="button" (click)="cancelDelete()" class="bg-red-700  text-white font-bold py-2 px-4 rounded">
           Cancelar
         </button>
       </div>

@@ -108,11 +108,8 @@ export class SidebarComponent {
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Quieres cerrar sesión?',
-      imageUrl : "../../../../../assets/icons/ad.png",
-      imageWidth: 130,  // Ajusta el ancho de la imagen
-      imageHeight: 150,
-      showCancelButton: true,
-      confirmButtonColor: '#F1AB0F',
+      icon:'question',
+      confirmButtonColor: '#14532D',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, cerrar sesión',
       cancelButtonText: 'Cancelar'
@@ -122,8 +119,8 @@ export class SidebarComponent {
         Swal.fire({
           icon: 'success',
           title: 'Cierre de sesión exitoso',
-          showConfirmButton: false,
-          timer: 1500
+          confirmButtonColor:'#14532D',
+          confirmButtonText:'aceptar'
         }).then(() => {
           this.router.navigate(['/login']);
         });

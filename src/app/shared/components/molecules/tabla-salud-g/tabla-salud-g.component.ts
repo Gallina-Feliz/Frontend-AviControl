@@ -25,12 +25,12 @@ export class TablaSaludGComponent implements OnInit {
       },
       (error) => {
         Swal.fire({
+          icon: 'warning',
           title: 'Error',
           text: 'Error al cargar los datos de salud',
-          imageUrl : "../../../../../assets/icons/2.png",
-          imageWidth: 130,  // Ajusta el ancho de la imagen
-          imageHeight: 150, 
+          confirmButtonColor: '#14532D',
           confirmButtonText: 'Aceptar'
+         
         });
         console.error('Error al cargar datos de salud:', error);
       }
@@ -50,12 +50,14 @@ export class TablaSaludGComponent implements OnInit {
   // Método para actualizar los datos de salud
   updateSalud(): void {
     if (this.selectedSalud) {
+      // No es necesario solicitar el id_SaludGallina en el formulario, ya que lo tienes en selectedSalud
       this.saludGallinasService.actualizarSaludGallina(this.selectedSalud.id_SaludGallina, this.selectedSalud).subscribe(
         () => {
           Swal.fire({
             title: 'Éxito',
             text: 'Los datos de salud han sido actualizados con éxito',
             icon: 'success',
+            confirmButtonColor: '#14532D',
             confirmButtonText: 'Aceptar'
           });
           this.loadSaludGallinas();  // Recargar los datos actualizados
@@ -63,11 +65,10 @@ export class TablaSaludGComponent implements OnInit {
         },
         (error) => {
           Swal.fire({
+            icon: 'warning',
             title: 'Error',
             text: 'Error al actualizar los datos de salud',
-            imageUrl : "../../../../../assets/icons/2.png",
-            imageWidth: 130,  // Ajusta el ancho de la imagen
-            imageHeight: 150, 
+            confirmButtonColor: '#14532D',
             confirmButtonText: 'Aceptar'
           });
           console.error('Error al actualizar datos de salud:', error);
@@ -75,6 +76,7 @@ export class TablaSaludGComponent implements OnInit {
       );
     }
   }
+  
 
   // Método para eliminar un registro de salud
   deleteSalud(id_SaludGallina: number): void {
@@ -83,8 +85,8 @@ export class TablaSaludGComponent implements OnInit {
       text: 'Esta acción no se puede deshacer',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
+      confirmButtonColor: '#14532D',
+      cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, eliminar',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
@@ -95,17 +97,17 @@ export class TablaSaludGComponent implements OnInit {
               title: 'Eliminado',
               text: 'El registro de salud ha sido eliminado con éxito',
               icon: 'success',
+              confirmButtonColor: '#14532D',
               confirmButtonText: 'Aceptar'
             });
             this.loadSaludGallinas();  // Recargar los datos tras la eliminación
           },
           (error) => {
             Swal.fire({
+              icon: 'warning',
               title: 'Error',
               text: 'Error al eliminar los datos de salud',
-              imageUrl : "../../../../../assets/icons/2.png",
-              imageWidth: 130,  // Ajusta el ancho de la imagen
-              imageHeight: 150, 
+              confirmButtonColor: '#14532D',
               confirmButtonText: 'Aceptar'
             });
             console.error('Error al eliminar datos de salud:', error);

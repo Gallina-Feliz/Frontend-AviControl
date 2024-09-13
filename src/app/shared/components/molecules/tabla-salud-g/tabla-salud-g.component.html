@@ -48,22 +48,47 @@
   
       <div class="relative bg-white rounded-lg shadow-lg p-6 z-50 w-full max-w-lg">
         <h2 class="text-lg font-bold mb-4">Editar Salud de la Gallina</h2>
-        <form (ngSubmit)="updateSalud()">
-          <div class="mb-4">
-            <label for="id_Gallina" class="block text-sm font-medium text-gray-700">ID Gallina</label>
-            <input name="id_Gallina" type="number" id="id_Gallina" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-          </div>
+        <form (ngSubmit)="updateSalud()" #saludForm="ngForm">
+          <!-- El ID no es necesario mostrarlo ya que está preseleccionado -->
           <div class="mb-4">
             <label for="tipo_registro" class="block text-sm font-medium text-gray-700">Tipo Registro</label>
-            <input  name="tipo_registro" type="text" id="tipo_registro" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+            <input [(ngModel)]="selectedSalud.tipo_Registro" name="tipo_registro" type="text" id="tipo_registro" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
           </div>
-          <!-- Agrega otros campos que desees editar -->
+          <div class="mb-4">
+            <label for="detalle" class="block text-sm font-medium text-gray-700">Detalle</label>
+            <input [(ngModel)]="selectedSalud.detalle" name="detalle" type="text" id="detalle" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+          </div>
+          <div class="mb-4">
+            <label for="medicamentos" class="block text-sm font-medium text-gray-700">Medicamentos</label>
+            <input [(ngModel)]="selectedSalud.medicamentos" name="medicamentos" type="text" id="medicamentos" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          </div>
+          <div class="mb-4">
+            <label for="dosis" class="block text-sm font-medium text-gray-700">Dosis</label>
+            <input [(ngModel)]="selectedSalud.dosis" name="dosis" type="text" id="dosis" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          </div>
+          <div class="mb-4">
+            <label for="fecha_vacuna" class="block text-sm font-medium text-gray-700">Fecha Vacuna</label>
+            <input [(ngModel)]="selectedSalud.fecha_vacuna" name="fecha_vacuna" type="date" id="fecha_vacuna" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          </div>
+          <div class="mb-4">
+            <label for="enfermedad" class="block text-sm font-medium text-gray-700">Enfermedad</label>
+            <input [(ngModel)]="selectedSalud.enfermedad" name="enfermedad" type="text" id="enfermedad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          </div>
+          <div class="mb-4">
+            <label for="peso" class="block text-sm font-medium text-gray-700">Peso</label>
+            <input [(ngModel)]="selectedSalud.peso" name="peso" type="number" id="peso" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          </div>
+          <div class="mb-4">
+            <label for="temperatura" class="block text-sm font-medium text-gray-700">Temperatura</label>
+            <input [(ngModel)]="selectedSalud.temperatura" name="temperatura" type="number" id="temperatura" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          </div>
           <div class="flex justify-end space-x-4">
-            <button type="submit" class="bg-secondary hover:bg-tercario text-white font-bold py-2 px-4 rounded">Guardar</button>
+            <button type="submit" [disabled]="saludForm.invalid" class="bg-secondary hover:bg-tercario text-white font-bold py-2 px-4 rounded">Guardar</button>
             <button type="button" (click)="cancelEdit()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancelar</button>
           </div>
         </form>
       </div>
+      
     </div>
   </div>
   

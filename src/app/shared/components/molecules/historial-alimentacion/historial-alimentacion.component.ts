@@ -47,13 +47,25 @@ updateAlimentacion(): void {
 
   this.alimentacionService.updateAlimentacion(this.selectedAlimentacion).subscribe(
     (response) => {
-      Swal.fire('Actualizado', 'Alimentación actualizada con éxito', 'success');
+      Swal.fire({
+        title:'Actualizado', 
+        text:'Alimentación actualizada con éxito', 
+        confirmButtonColor: '#14532D',
+        icon:'success',
+        confirmButtonText:'Aceptar'
+    });
       this.getAlimentaciones(); // Recargar la lista después de la actualización
       this.cancelEdit(); // Cerrar el modal de edición
     },
     (error) => {
       console.error('Error al actualizar la alimentación', error);
-      Swal.fire('Error', 'No se pudo actualizar la alimentación', 'error');
+      Swal.fire({
+        title:'Error', 
+        text:'No se pudo actualizar la alimentación', 
+        confirmButtonColor: '#14532D',
+        icon:'error',
+        confirmButtonText:'Aceptar'
+    });
     }
   );
 }
@@ -66,19 +78,32 @@ updateAlimentacion(): void {
       text: 'No podrás revertir esto',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#14532D',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, eliminar',
+      cancelButtonText:'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
         this.alimentacionService.eliminarAlimentacion(id).subscribe(
           () => {
-            Swal.fire('Eliminado', 'La alimentación ha sido eliminada', 'success');
+            Swal.fire({
+            title:'Eliminado', 
+            text:'La alimentación ha sido eliminada', 
+            confirmButtonColor: '#14532D',
+            icon:'success',
+            confirmButtonText:'Aceptar'
+          });
             this.getAlimentaciones(); // Recargar la lista después de eliminar
           },
           (error) => {
             console.error('Error al eliminar la alimentación', error);
-            Swal.fire('Error', 'No se pudo eliminar la alimentación', 'error');
+            Swal.fire({
+              title:'Error', 
+              text:'No se pudo eliminar la alimentación', 
+              confirmButtonColor: '#14532D',
+              icon:'error',
+              confirmButtonText:'Aceptar'
+          });
           }
         );
       }

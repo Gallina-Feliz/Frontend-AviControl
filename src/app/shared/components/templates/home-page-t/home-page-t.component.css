@@ -1,21 +1,28 @@
+.welcome-message-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente si es necesario */
+  width: 100%; /* Ocupa el ancho completo del contenedor */
+}
+
 .welcome-message {
-    font-family: monospace;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid; /* Simula el cursor al final del texto */
-    width: 0;  /* Empieza con ancho 0 */
-    animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s steps(40, end) 3.5s forwards;
-  }
-  
-  /* Efecto de tipeo */
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  
-  /* Efecto de parpadeo del cursor */
-  @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: black; }
-  }
-  
+  font-family: monospace;
+  font-size: 2.5rem; /* Ajusta el tamaño del texto según sea necesario */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid; /* Simula el cursor al final del texto */
+  width: 0; /* Empieza con ancho 0 */
+  animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s steps(40, end) 3.5s forwards;
+}
+
+/* Efecto de tipeo */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Efecto de parpadeo del cursor */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}

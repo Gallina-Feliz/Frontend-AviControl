@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../../core/services/auth/auth.service'; // Asegúrate de que esté bien importado
+import { AuthService } from '../../../../core/services/auth/auth.service';
+import { EstadisticasGeneralesService } from '../../../../core/services/EstadisticasGenerales/estadisticas-generales.service'; // Importa el servicio
+import { EstadisticasGenerales } from '../../../../core/models/estadisticas-generales.model'; // Importa el modelo
 
 @Component({
   selector: 'app-home-page-t',
@@ -8,17 +10,30 @@ import { AuthService } from '../../../../core/services/auth/auth.service'; // As
 })
 export class HomePageTComponent implements OnInit {
   userName: string | null = '';
+  estadisticas: EstadisticasGenerales | undefined; // Para almacenar las estadísticas
+  loading = true;  // Estado de carga
+  error: string | null = null;  // Estado de error
 
-  constructor(private authService: AuthService) {}
-
+  constructor(private authService: AuthService, private estadisticasService: EstadisticasGeneralesService) {}
 
   ngOnInit(): void {
-    // Obtener el nombre del usuario desde el localStorage o hacer una solicitud a tu API
-    const user = this.authService.getUserData(); // Esto dependerá de cómo estés gestionando el almacenamiento del usuario
+    // Obtener el nombre del usuario desde el AuthService o el localStorage
+    const user = this.authService.getUserData();
 
     if (user) {
-      this.userName = user.nombre;  // Cambia 'Name' a 'Nombre' si es la clave correcta
+      this.userName = user.nombre; // Cambia 'nombre' si usas una clave diferente
     }
-    
+
+    // Obtener las estadísticas generales
+    this.estadisticasService.getEstadisticasGenerales().subscribe({
+      next: (data) => {
+        this.estadisticas = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Error al cargar las estadísticas';
+        this.loading = false;
+      }
+    });
   }
 }
