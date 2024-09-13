@@ -51,7 +51,9 @@ export class FormularioSaludGallinasComponent {
 
     if (this.saludGallina.temperatura < 0 || this.saludGallina.temperatura > 100) {
       Swal.fire({
-        icon: 'warning',
+        imageUrl : "../../../../../assets/icons/ad.png",
+        imageWidth: 130,  // Ajusta el ancho de la imagen
+        imageHeight: 150, 
         title: 'Temperatura inválida',
         text: 'La temperatura debe estar entre 0 y 100 grados centígrados.'
       });

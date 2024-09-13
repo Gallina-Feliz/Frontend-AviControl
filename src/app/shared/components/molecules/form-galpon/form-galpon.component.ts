@@ -48,7 +48,9 @@ export class FormGalponComponent {
       error => {
         // Mostrar alerta de error
         Swal.fire({
-          icon: 'error',
+          imageUrl : "../../../../../assets/icons/2.png",
+          imageWidth: 130,  // Ajusta el ancho de la imagen
+          imageHeight: 150,
           title: 'Error al registrar',
           text: 'Ocurrió un error al registrar el galpón. Inténtalo nuevamente.',
           confirmButtonColor: '#d33'

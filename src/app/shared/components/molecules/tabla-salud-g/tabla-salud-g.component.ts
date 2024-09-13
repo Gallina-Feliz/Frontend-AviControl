@@ -81,7 +81,9 @@ export class TablaSaludGComponent implements OnInit {
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Esta acción no se puede deshacer',
-      icon: 'warning',
+      imageUrl : "../../../../../assets/icons/ad.png",
+      imageWidth: 130,  // Ajusta el ancho de la imagen
+      imageHeight: 150, 
       showCancelButton: true,
       confirmButtonColor: '#d33',
       cancelButtonColor: '#3085d6',
