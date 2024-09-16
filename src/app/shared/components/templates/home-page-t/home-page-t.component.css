@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente si es necesario */
-  width: 100%; /* Ocupa el ancho completo del contenedor */
+  
 }
 
 .welcome-message {
@@ -11,8 +11,7 @@
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid; /* Simula el cursor al final del texto */
-  width: 0; /* Empieza con ancho 0 */
-  animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s steps(40, end) 3.5s forwards;
+  animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s steps(20, end) 3.5s forwards;
 }
 
 /* Efecto de tipeo */

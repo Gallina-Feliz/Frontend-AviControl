@@ -85,31 +85,14 @@ export class Login2Component implements OnInit {
             }
           }, 1000);  // Esperar 1 segundo antes de cerrar la alerta
         },
-        (error) => {
-          // Retrasar el cierre de la alerta en caso de error
-          setTimeout(() => {
-            Swal.close(); // Cerrar la alerta de cargando
-            console.error('Error en el inicio de sesión:', error);
-            Swal.fire({
-              imageUrl : "../../../../../assets/icons/2.png",
-              imageWidth: 130,  // Ajusta el ancho de la imagen
-              imageHeight: 150, 
-              title: 'Error',
-              text:'Ocurrió un error durante el inicio de sesión',
-              confirmButtonColor: '#F1AB0F',
-              confirmButtonText: 'Aceptar'
-            });
-          }, 1000);  // Esperar 1 segundo antes de cerrar la alerta
-        }
+         // Esperar 1 segundo antes de cerrar la alerta
       );
     }  else {
       Swal.fire({
-        imageUrl : "../../../../../assets/icons/ad.png",
-        imageWidth: 130,  // Ajusta el ancho de la imagen
-        imageHeight: 150, 
+        icon:'info',
         title: 'Advertencia',
         text: 'Por favor, complete todos los campos correctamente',
-        confirmButtonColor: '#F1AB0F',
+        confirmButtonColor: '#14532D',
         confirmButtonText: 'Aceptar'
         
       });

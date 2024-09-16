@@ -4,6 +4,7 @@ import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';  // Importa SweetAlert2
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,9 @@ export class AuthService {
           Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Credenciales incorrectas'
+            text: 'Credenciales incorrectas',
+            confirmButtonColor:'#14532D',
+            confirmButtonText:'Aceptar'
           });
           throw new Error('No se recibió la información de autenticación esperada');
         }
@@ -57,17 +60,22 @@ export class AuthService {
     return userData ? JSON.parse(userData) : null;
   }
 
-  logout(): void {
+  logout(): Observable<void> {
+    // Elimina el token y los datos del usuario del almacenamiento local
     localStorage.removeItem('token');
-    localStorage.removeItem('userData');  // Limpia los datos del usuario
-    this.router.navigate(['/login']);
-
+    localStorage.removeItem('userData');
+    this.router.navigate(['/login']); // Navega a la pantalla de inicio de sesión
+  
+    // Muestra el mensaje de cierre de sesión exitoso
     Swal.fire({
       icon: 'info',
       title: 'Cierre de sesión exitoso',
       showConfirmButton: false,
       timer: 1500
     });
+  
+    // Retorna un observable vacío para que pueda ser suscrito
+    return of();
   }
 
   isAuthenticated(): boolean {

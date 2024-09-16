@@ -1,0 +1,142 @@
+.menu-lateral {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #f1f1f1;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+.content-wrapper {
+  padding-top: 64px; /* Height of the top bar */
+  transition: margin-left 0.3s ease-in-out;
+}
+.text-1rem {
+  font-size: 1rem;
+}
+
+
+
+
+
+/* menu de icono usuario */ 
+.user-menu {
+  width: 200px;
+  padding: 10px 0;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+}
+
+.user-menu a,
+.user-menu button {
+  display: block;
+  padding: 10px 8px; /* Reducimos el padding izquierdo para pegar más el texto */
+  text-align: left;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 15px;
+  transition: background-color 0.1s ease;
+  width: calc(100% - 20px);  /* Mantén el ancho completo del contenedor */
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+.user-menu a:hover,
+.user-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+.user-menu button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+.user-icon {
+  border-radius: 50%; /* Asegurar que la imagen sea circular */
+  transition: box-shadow 0.1s ease; /* Transición suave para la sombra */
+}
+
+.user-icon:hover {
+  box-shadow: 0 0 0 5px rgba(192, 192, 192, 1); /* Sombra sólida circular gris claro */
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 721px) {
+  .content-wrapper {
+    margin-left: 250px;
+  }
+}
+
+@media (max-width: 720px) {
+  .menu-lateral {
+    transform: translateX(-100%);
+    width: 100%;
+  }
+  .menu-lateral.open {
+    transform: translateX(0);
+  }
+  .content-wrapper {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .menu-lateral {
+    width: 100%;
+  }
+  .top-bar {
+    height: 56px; /* Reduced height for smaller screens */
+  }
+  .content-wrapper {
+    padding-top: 56px; /* Adjusted for reduced top bar height */
+  }
+}
+
+@media (max-width: 360px) {
+  .menu-lateral {
+    width: 100%;
+  }
+  .top-bar {
+    height: 52px; /* Further reduced height for even smaller screens */
+  }
+  .content-wrapper {
+    padding-top: 52px; /* Adjusted for further reduced top bar height */
+  }
+}
+
+body.menu-open .content-wrapper {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+body.menu-open .top-bar {
+  pointer-events: none;
+}
+
+.menu-lateral, .top-bar {
+  pointer-events: auto !important;
+}
