@@ -43,6 +43,7 @@ import { FormConteoComponent } from './components/molecules/form-conteo/form-con
 import { HuevosConteoTComponent } from './components/templates/huevos-conteo-t/huevos-conteo-t.component';
 import { TipoHuevoTableComponent } from './components/molecules/tipo-huevo-table/tipo-huevo-table.component';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
+import { NotificacionesComponent } from './components/molecules/notificaciones/notificaciones.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.com
     FormConteoComponent,
     HuevosConteoTComponent,
     TipoHuevoTableComponent,
-    MenuLateralComponent
+    MenuLateralComponent,
+    NotificacionesComponent
 
   ],
   imports: [

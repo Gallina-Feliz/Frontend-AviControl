@@ -1,0 +1,40 @@
+<div class="notificaciones">
+  <!-- Campanita de notificaciones -->
+  <div class="campana" (click)="toggleNotificaciones()">
+    <a href="javascript:void(0);"> <!-- Cambia href a javascript:void(0); para evitar la recarga de página -->
+      <img src="../../../../../assets/icons/bell-regular-24.png" alt="Campana de notificaciones" class="campana-img" />
+    </a>
+    <!-- Mostrar indicador si hay nuevas notificaciones -->
+    <span *ngIf="hayNuevasNotificaciones" class="nuevas-notificaciones"></span>
+  </div>
+
+  <!-- Lista de notificaciones (se muestra solo si 'mostrarNotificaciones' es true) -->
+  <div *ngIf="mostrarNotificaciones" class="lista-notificaciones">
+    <h3>Notificaciones</h3>
+
+    <!-- Mostrar tabla si hay notificaciones -->
+    <div *ngIf="notificaciones.length > 0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Mensaje</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let notificacion of notificaciones">
+            <td>{{ notificacion.tipo }}</td>
+            <td>{{ notificacion.mensaje }}</td>
+            <td>{{ notificacion.timestamp | date:'short' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mostrar mensaje si no hay notificaciones -->
+    <div *ngIf="notificaciones.length === 0">
+      <p>No hay notificaciones</p>
+    </div>
+  </div>
+</div>
