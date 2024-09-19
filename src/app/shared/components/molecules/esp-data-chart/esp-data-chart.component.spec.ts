@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotificacionesComponent } from './notificaciones.component';
+import { EspDataChartComponent } from './esp-data-chart.component';
 
-describe('NotificacionesComponent', () => {
-  let component: NotificacionesComponent;
-  let fixture: ComponentFixture<NotificacionesComponent>;
+describe('EspDataChartComponent', () => {
+  let component: EspDataChartComponent;
+  let fixture: ComponentFixture<EspDataChartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NotificacionesComponent]
+      declarations: [EspDataChartComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(NotificacionesComponent);
+    fixture = TestBed.createComponent(EspDataChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

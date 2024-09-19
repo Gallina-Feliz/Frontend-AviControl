@@ -1,0 +1,7 @@
+/* esp-data-chart.component.css */
+#myChart {
+    max-width: 100%;  /* Asegura que el gráfico se ajuste al ancho del contenedor */
+    height: 300px;    /* Altura fija para el gráfico */
+    margin: auto;     /* Centra el gráfico horizontalmente si el contenedor es más ancho */
+  }
+  
