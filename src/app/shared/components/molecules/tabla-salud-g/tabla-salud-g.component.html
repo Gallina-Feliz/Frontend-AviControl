@@ -11,8 +11,8 @@
           <th scope="col" class="px-6 py-3 text-secondary">Dosis</th>
           <th scope="col" class="px-6 py-3 text-secondary">Fecha Vacuna</th>
           <th scope="col" class="px-6 py-3 text-secondary">Enfermedad</th>
-          <th scope="col" class="px-6 py-3 text-secondary">Peso</th>
-          <th scope="col" class="px-6 py-3 text-secondary">Temperatura</th>
+          <th scope="col" class="px-6 py-3 text-secondary">Peso (Kg)</th>
+          <th scope="col" class="px-6 py-3 text-secondary">Temperatura (°C)</th>
           <th scope="col" class="px-6 py-3 text-secondary">Acciones</th>
         </tr>
       </thead>
@@ -75,11 +75,11 @@
             <input [(ngModel)]="selectedSalud.enfermedad" name="enfermedad" type="text" id="enfermedad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
           </div>
           <div class="mb-4">
-            <label for="peso" class="block text-sm font-medium text-gray-700">Peso</label>
+            <label for="peso" class="block text-sm font-medium text-gray-700">Peso (Kg)</label>
             <input [(ngModel)]="selectedSalud.peso" name="peso" type="number" id="peso" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
           </div>
           <div class="mb-4">
-            <label for="temperatura" class="block text-sm font-medium text-gray-700">Temperatura</label>
+            <label for="temperatura" class="block text-sm font-medium text-gray-700">Temperatura (°C)</label>
             <input [(ngModel)]="selectedSalud.temperatura" name="temperatura" type="number" id="temperatura" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
           </div>
           <div class="flex justify-end space-x-4">
